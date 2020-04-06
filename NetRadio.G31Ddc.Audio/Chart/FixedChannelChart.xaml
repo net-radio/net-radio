@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="NetRadio.G313.Chart.FixedChannelChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 mc:Ignorable="d" 
+             d:DesignHeight="343" d:DesignWidth="753">
+    <Grid Name="RootLayout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Visibility="Collapsed" Grid.Row="0" Orientation="Horizontal">
+            <Button Width="30" Height="15" Click="ButtonClear_OnClick">Clear</Button>
+            <Button Width="30" Height="15" Click="ButtonZoomOut_OnClick">-</Button>
+            <Button Width="30" Height="15" Click="ButtonZoomIn_OnClick">+</Button>
+            <TextBlock Name="TextBlockValue" Text="Dude" Foreground="White"/>
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Name="ContentControlChart" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+    </Grid>
+</UserControl>

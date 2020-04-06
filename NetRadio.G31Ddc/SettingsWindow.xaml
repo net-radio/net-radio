@@ -1,0 +1,158 @@
+﻿<Window x:Class="NetRadio.G31Ddc.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrl="clr-namespace:NetRadio.G31Ddc.Control"
+        Title="Setup" Height="480" Width="640" 
+        WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid Background="{DynamicResource BrushedBack}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}">Spectrum (IF)</TextBlock>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Minimum Intensity (db)</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="1" Grid.Column="1" Text="{Binding Path=IfMinimumIntensityDb, Mode=TwoWay}" />
+
+        <Border Grid.Row="1" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Amplitude</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="1" Grid.Column="3" Text="{Binding Path=IfCalibrationAmplitude, Mode=TwoWay}" />
+
+        <Border Grid.Row="1" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Offset</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="1" Grid.Column="5" Text="{Binding Path=IfCalibrationOffset, Mode=TwoWay}" />
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}">Spectrum (DDC 1)</TextBlock>
+        </Border>
+
+        <Border Grid.Row="3" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Minimum Intensity (db)</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="3" Grid.Column="1" Text="{Binding Path=Ddc1MinimumIntensityDb, Mode=TwoWay}" />
+
+        <Border Grid.Row="3" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Amplitude</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="3" Grid.Column="3" Text="{Binding Path=Ddc1CalibrationAmplitude, Mode=TwoWay}" />
+
+        <Border Grid.Row="3" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Offset</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="3" Grid.Column="5" Text="{Binding Path=Ddc1CalibrationOffset, Mode=TwoWay}" />
+
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}">Spectrum (DDC 2)</TextBlock>
+        </Border>
+
+        <Border Grid.Row="5" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Minimum Intensity (db)</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="5" Grid.Column="1" Text="{Binding Path=Ddc2MinimumIntensityDb, Mode=TwoWay}" />
+
+        <Border Grid.Row="5" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Amplitude</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="5" Grid.Column="3" Text="{Binding Path=Ddc2CalibrationAmplitude, Mode=TwoWay}" />
+
+        <Border Grid.Row="5" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Calibration Offset</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="5" Grid.Column="5" Text="{Binding Path=Ddc2CalibrationOffset, Mode=TwoWay}" />
+
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}" >Sofware AGC</TextBlock>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}" >Fast</TextBlock>
+        </Border>
+        <Border Grid.Row="8" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Attack</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="8" Grid.Column="1" Text="{Binding Path=FastSagcAttack,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="8" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Decay</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="8" Grid.Column="3" Text="{Binding Path=FastSagcDecay,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="8" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Reference</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="8" Grid.Column="5" Text="{Binding Path=FastSagcReferenceLevel,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}" >Medium</TextBlock>
+        </Border>
+        <Border Grid.Row="10" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Attack</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="10" Grid.Column="1" Text="{Binding Path=MediumSagcAttack,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="10" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Decay</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="10" Grid.Column="3" Text="{Binding Path=MediumSagcDecay,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="10" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Reference</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="10" Grid.Column="5" Text="{Binding Path=MediumSagcReferenceLevel,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="6" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Width="100" Style="{DynamicResource RadioTitle}">Slow</TextBlock>
+        </Border>
+        <Border Grid.Row="12" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Attack</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="12" Grid.Column="1" Text="{Binding Path=SlowSagcAttack,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="12" Grid.Column="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Decay</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Row="12" Grid.Column="3" Text="{Binding Path=SlowSagcDecay,Mode=TwoWay}" ></ctrl:Input>
+        <Border Grid.Row="12" Grid.Column="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}" >Reference</TextBlock>
+        </Border>
+        <Border Grid.Row="13" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Squelch</TextBlock>
+        </Border>
+        <Border Grid.Row="14" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Reference</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Column="1" Grid.Row="14" Text="{Binding Path=SquelchReferenceLevel, Mode=TwoWay}"/>
+        
+        <Border Grid.Column="2" Grid.Row="13" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">Gain</TextBlock>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="14" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock Style="{DynamicResource RadioTitle}">LNA</TextBlock>
+        </Border>
+        <ctrl:Input Grid.Column="3" Grid.Row="14" Text="{Binding Path=RmsReferenceLevel, Mode=TwoWay}"/>
+
+        <Button Grid.Column="4" Grid.Row="16" Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandSaveAndClose}">Save and Close</Button>
+    </Grid>
+</Window>

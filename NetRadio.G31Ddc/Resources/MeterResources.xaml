@@ -1,0 +1,142 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ig="http://schemas.infragistics.com/xaml">
+
+    <RadialGradientBrush x:Key="ShadowFill">
+        <GradientStop Color="#66000000"/>
+        <GradientStop Offset="1"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush x:Key="LinearDialBackground" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FFE0E4E7" />
+        <GradientStop Offset="1" Color="#FFF4F7F7" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="LinearDialStroke" Color="#FFBFC7CE" />
+    <LinearGradientBrush x:Key="LinearNeedleFill" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#FFFFFFFF" />
+        <GradientStop Offset="1" Color="#FFCDD3D9" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="LinearNeedleStroke" Color="#FF6C6C6C"/>
+
+    <Style x:Key="EggNeedle" TargetType="ig:LinearGaugeNeedle">
+        <Setter Property="Background" Value="{StaticResource LinearNeedleFill}" />
+        <Setter Property="Stroke" Value="{StaticResource LinearNeedleStroke}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:LinearGaugeNeedle">
+                    <Grid VerticalAlignment="Top">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Positions">
+                                <VisualState x:Name="Horizontal">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" Storyboard.TargetName="NeedleGrid" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Vertical">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="-90" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" Storyboard.TargetName="NeedleGrid" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="NeedleGrid">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform />
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Path Width="11" Height="15" VerticalAlignment="Top" Data="M 104,562 C105,561 106,561 106,562 106,562 106,575 106,575 106,576 105,577 104,576 104,576 96,570 96,570 95,570 95,568 96,568 96,568 104,562 104,562 z" Opacity="1" Stretch="Fill">
+                                <Path.Fill>
+                                    <LinearGradientBrush StartPoint="0.5,1.098" EndPoint="0.5,0">
+                                        <LinearGradientBrush.GradientStops>
+                                            <GradientStopCollection>
+                                                <GradientStop Offset="0" Color="#FFffffff" />
+                                                <GradientStop Offset="0.5" Color="#FFf4f4f4" />
+                                                <GradientStop Offset="0.500" Color="#FFe2e2e2" />
+                                                <GradientStop Offset="0.966" Color="#FFF0F0F0" />
+                                                <GradientStop Offset="1" Color="#FFf2f2f2" />
+                                            </GradientStopCollection>
+                                        </LinearGradientBrush.GradientStops>
+                                    </LinearGradientBrush>
+                                </Path.Fill>
+                            </Path>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <LinearGradientBrush x:Key="ScrewFill" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF434343" />
+        <GradientStop Offset="1" Color="#FF767676" />
+    </LinearGradientBrush>
+
+    <Style x:Key="LinearGaugeDark" TargetType="ig:XamLinearGauge">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:XamLinearGauge">
+                    <Grid>
+                        <Rectangle x:Name="background_Border" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{TemplateBinding Background}" RadiusX="4" RadiusY="4" StrokeThickness="1" />
+                        <Border x:Name="top" Height="42" Margin="0,0,0,10" VerticalAlignment="Top" BorderBrush="#BFFFFFFF" BorderThickness="0,0,0,1" CornerRadius="4,4,0,0" Opacity="0.5">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#FFFFFFFF" />
+                                    <GradientStop Offset="1" Color="#FFBBBBBB" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Rectangle Height="1" VerticalAlignment="Bottom" Fill="#FF201F24" Opacity="0.75" />
+                        </Border>
+                        <Border x:Name="InnerBorder" Margin="0,1,0,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,1,0,0" CornerRadius="4,4,4,4" />
+                        <Grid x:Name="TopLeft" Width="7" Height="7" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top">
+                            <Ellipse Width="7" Height="7" Fill="{StaticResource ScrewFill}"/>
+                            <Ellipse Width="5" Height="5" Fill="#FF8B8B8B"/>
+                            <Rectangle Width="3" Height="1" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource ScrewFill}"/>
+                        </Grid>
+                        <Grid x:Name="TopRight" Width="7" Height="7" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top">
+                            <Ellipse Width="7" Height="7" Fill="{StaticResource ScrewFill}"/>
+                            <Ellipse Width="5" Height="5" Fill="#FF8B8B8B"/>
+                            <Rectangle Width="3" Height="1" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource ScrewFill}"/>
+                        </Grid>
+                        <Rectangle Height="17" Margin="14,0,14,19" VerticalAlignment="Bottom" >
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="1" Color="#FF1B1B1B" />
+                                    <GradientStop Offset="0" Color="#FF1B1B1B" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="#FFFFFFFF" Text="dd" TextWrapping="NoWrap"/>
+                        <ContentPresenter x:Name="RootElement" Height="90" VerticalAlignment="Bottom" Margin="15,0,15,20" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource LinearDialBackground}" />
+        <Setter Property="BorderBrush" Value="{StaticResource LinearDialStroke}" />
+    </Style>
+
+    <LinearGradientBrush x:Key="LinearGaugeBgColor2" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF5C5C5C" Offset="0.011" />
+        <GradientStop Offset="1" Color="#FF2F2F2F" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="RangeStep0" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FFC33636" Offset="0.011" />
+        <GradientStop Offset="1" Color="#AAC33636" />
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush x:Key="RangeStep1" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FFD1C80B" Offset="0.011" />
+        <GradientStop Offset="1" Color="#AAD1C80B" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="RangeStep2" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#FF6FD435" Offset="0.011" />
+        <GradientStop Offset="1" Color="#AA6FD435" />
+    </LinearGradientBrush>
+    
+</ResourceDictionary>

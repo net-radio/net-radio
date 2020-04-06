@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:NetRadio.G313.Converter">
+    <converter:AgcToBooleanConverter x:Key="AgcConverter" />
+    <converter:InverseAgcToBooleanConverter x:Key="InverseAgcConverter" />
+    <converter:ModeToBooleanConverter x:Key="ModeConverter"></converter:ModeToBooleanConverter>
+    <converter:IsbAudioToBooleanConverter x:Key="IsbConverter"></converter:IsbAudioToBooleanConverter>
+</ResourceDictionary>

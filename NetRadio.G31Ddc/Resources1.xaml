@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BitmapImage x:Key="Memory" UriSource="Resources/kfloppy.png"/>
+    <BitmapImage x:Key="Search" UriSource="Resources/viewmag.png"/>
+    <BitmapImage x:Key="Scan" UriSource="Resources/remote.png"/>
+    <BitmapImage x:Key="HoppingImage" UriSource="Resources/ScriptBlocking.png"/>
+    <BitmapImage x:Key="SkipImage" UriSource="Resources/button_cancel.png"/>
+    
+</ResourceDictionary>
+    

@@ -1,0 +1,26 @@
+﻿<Application x:Class="NetRadio.G31Ddc.Blend.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Converters.xaml"/>
+                
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/sleek.xaml"/>-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/mercury.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/candy.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/edge.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/frog.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/inc.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/metal.xaml" />-->
+                <!--<ResourceDictionary Source="/ReuxablesLegacy;component/sleek.xaml" />-->
+
+                <ResourceDictionary Source="ReuxablesLegacy/Sleek.xaml"/>
+
+                <ResourceDictionary Source="Resources.xaml" />
+                <ResourceDictionary Source="ThemeExtensions.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

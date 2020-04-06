@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5E783D5-484F-4015-9AC3-41FC9DD4E60B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetRadio.G31Ddc</RootNamespace>
+    <AssemblyName>NetRadio.G31Ddc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Arction.WPF.LightningChartUltimate">
+      <HintPath>..\3rdParty\LightningChart\Arction.WPF.LightningChartUltimate.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamGauge.v12.2, Version=12.2.20122.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\IG\InfragisticsWPF4.Controls.Charts.XamGauge.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v12.2, Version=12.2.20122.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\IG\InfragisticsWPF4.DataVisualization.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v12.2, Version=12.2.20122.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\IG\InfragisticsWPF4.v12.2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="NAudio, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NAudio.1.7.3\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReuxablesLegacy">
+      <HintPath>..\3rdParty\Reuxables\ReuxablesLegacy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfToolkit">
+      <HintPath>..\3rdParty\LightningChart\WpfToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Arction\CursorLinePack.cs" />
+    <Compile Include="Arction\SpectrumAnalyzer.cs" />
+    <Compile Include="Arction\WaveformControl.xaml.cs">
+      <DependentUpon>WaveformControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arction\WaveformDefinitions.cs" />
+    <Compile Include="Arction\WaveformMonitor.cs" />
+    <Compile Include="Chart\WaveformDefinitions.cs" />
+    <Compile Include="Converter\AgcToBooleanConverter.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\BoolToContentConverter.cs" />
+    <Compile Include="Converter\UserModeToVisibilityConverter.cs" />
+    <Compile Include="Core\Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\CursorLinePack.cs" />
+    <Compile Include="Chart\WaveformControl.xaml.cs">
+      <DependentUpon>WaveformControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chart\WaveformMonitor.cs" />
+    <Compile Include="Control\FrequencyDisplay.xaml.cs" />
+    <Compile Include="Control\Input.xaml.cs" />
+    <Compile Include="Control\Knob.xaml.cs" />
+    <Compile Include="Converter\ConverterBase.cs" />
+    <Compile Include="Converter\ModeToBooleanConverter.cs" />
+    <Compile Include="Core\Extension\Extensions.cs" />
+    <Compile Include="G31DdcMainWnd.xaml.cs">
+      <DependentUpon>G31DdcMainWnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HideCloseButtonOnWindow.cs" />
+    <Compile Include="IWaterfallAnalyzer.cs" />
+    <Compile Include="ModelBase\Ddc2Model.cs" />
+    <Compile Include="Enums\ScanMode.cs" />
+    <Compile Include="Enums\UserMode.cs" />
+    <Compile Include="Core\Helper\UIHelper.cs" />
+    <Compile Include="ModelBase\Pax\Definitions\Definitions.cs" />
+    <Compile Include="ModelBase\Pax\Definitions\StateChangedEventArgs.cs" />
+    <Compile Include="ModelBase\SettingsModel.cs" />
+    <Compile Include="ModelBase\Signal\MasterObservationResult.cs" />
+    <Compile Include="ModelBase\Signal\SignalObservation.cs" />
+    <Compile Include="ModelBase\Signal\SimpleObservation.cs" />
+    <Compile Include="ModelBase\Signal\ConsecutiveObservation.cs" />
+    <Compile Include="Model\Entities\InvalidArgumentException.cs" />
+    <Compile Include="Model\Entities\IObservable.cs" />
+    <Compile Include="Operations\ObjectCopier.cs" />
+    <Compile Include="Operations\SearchEventArgs.cs" />
+    <Compile Include="PanelViewModel\Ddc1SpectrumViewModel.cs" />
+    <Compile Include="PanelViewModel\Ddc2SpectrumViewModel.cs" />
+    <Compile Include="PanelViewModel\Ddc2ViewModel.cs" />
+    <Compile Include="PanelViewModel\IfSpectrumViewModel.cs" />
+    <Compile Include="PanelViewModel\MeterViewModel.cs" />
+    <Compile Include="PanelViewModel\RadioViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PanelViewModel\ResolutionBandwidth.cs" />
+    <Compile Include="PanelViewModel\SettingsViewModel.cs" />
+    <Compile Include="PanelViewModel\SpectrumViewModel.cs" />
+    <Compile Include="PanelViewModel\SquelchViewModel.cs" />
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders\DeepBlueEffect.cs" />
+    <Compile Include="Shaders\DeepRedEffect.cs" />
+    <Compile Include="Shaders\OrangeEffect.cs" />
+    <Compile Include="Shaders\RainbowEffect.cs" />
+    <Compile Include="SignalMeasurmentResult.cs" />
+    <Compile Include="Transform.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Pulse.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Rectangular.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Sawtooth.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Sine.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Square.cs" />
+    <Compile Include="ViewModel\Exciter\Waveform\Triangular.cs" />
+    <Compile Include="ViewModel\UserManagement\Dialogs\ColorDialog.xaml.cs">
+      <DependentUpon>ColorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBase\RadioModel.cs" />
+    <Compile Include="ViewModel\DelegateCommand.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\UserManagement\FPGA.cs" />
+    <Compile Include="ViewModel\UserManagement\UserModeNotDefinedException.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="WaterfallConfig.cs" />
+    <Compile Include="Waterfall.xaml.cs">
+      <DependentUpon>Waterfall.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Arction\WaveformControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Chart\WaveformControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\FrequencyDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\Input.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\Knob.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Converters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="G31DdcMainWnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MeterResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThemeExtensions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModel\UserManagement\Dialogs\ColorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Waterfall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Shaders\DeepBlueEffect.ps" />
+    <Resource Include="Shaders\DeepRedEffect.ps" />
+    <Resource Include="Shaders\OrangeEffect.ps" />
+    <Resource Include="Shaders\RainbowEffect.ps" />
+    <Resource Include="Resources\wingding.ttf" />
+    <Resource Include="Resources\segoepr.ttf" />
+    <Resource Include="Resources\segoeprb.ttf" />
+    <Resource Include="Resources\segoeui.ttf" />
+    <Resource Include="Resources\segoeuib.ttf" />
+    <Resource Include="Resources\segoeuii.ttf" />
+    <Resource Include="Resources\segoeuil.ttf" />
+    <Resource Include="Resources\SEGOEUISL.TTF" />
+    <Resource Include="Resources\segoeuiz.ttf" />
+    <Resource Include="Resources\seguisb.ttf" />
+    <Resource Include="Resources\segoesc.ttf" />
+    <Resource Include="Resources\segoescb.ttf" />
+    <Resource Include="Resources\ANTQUAB.TTF" />
+    <Resource Include="Resources\ANTQUABI.TTF" />
+    <Resource Include="Resources\ANTQUAI.TTF" />
+    <Resource Include="Resources\BKANT.TTF" />
+    <Resource Include="Resources\Digital7.ttf" />
+    <Resource Include="Resources\SubwayTicker.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Radar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetRadio.Devices.G31Ddc\NetRadio.Devices.G3XDdc.csproj">
+      <Project>{a9fc209c-c729-4339-b6ae-29e6a79a466d}</Project>
+      <Name>NetRadio.Devices.G3XDdc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetRadio.Devices\NetRadio.Devices.csproj">
+      <Project>{14fd2ca3-1e0b-4a73-b5da-037679d11d22}</Project>
+      <Name>NetRadio.Devices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetRadio.Signal\NetRadio.Signal.csproj">
+      <Project>{04fd2d10-326a-49a9-b87d-343fac7fbf4d}</Project>
+      <Name>NetRadio.Signal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfControlLibrary\WpfControlLibrary.csproj">
+      <Project>{4eef7329-8cc5-4609-a3b2-a2c3e8e2051b}</Project>
+      <Name>WpfControlLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Model\DataControllers\" />
+    <Folder Include="Model\DataProviders\" />
+    <Folder Include="Model\Interfaces\" />
+    <Folder Include="ViewModel\Exciter\Monitoring\" />
+    <Folder Include="ViewModel\Exciter\SignalGenerator\Origin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="legend.png" />
+    <Resource Include="Resources\mute.png" />
+    <Resource Include="Resources\speaker.png" />
+    <Resource Include="Resources\whiteSettings.png" />
+    <Resource Include="Resources\power.png" />
+    <Content Include="Shaders\DeepBlue.fx" />
+    <Content Include="Shaders\DeepRed.fx" />
+    <Content Include="Shaders\OrangeEffect.fx" />
+    <Content Include="Shaders\RainbowEffect.fx" />
+    <Resource Include="Resources\button_cancel.png" />
+    <Resource Include="Resources\ScriptBlocking.png" />
+    <Resource Include="Resources\remote.png" />
+    <Resource Include="Resources\viewmag.png" />
+    <Resource Include="Resources\kfloppy.png" />
+    <Resource Include="Resources\knobBlack.png" />
+    <Resource Include="Resources\knob.png" />
+    <Resource Include="Resources\brushed.jpg" />
+    <Resource Include="Resources\blackBrushed.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

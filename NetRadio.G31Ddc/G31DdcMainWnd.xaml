@@ -1,0 +1,593 @@
+﻿<Window x:Class="NetRadio.G31Ddc.G31DdcMainWnd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:local="clr-namespace:NetRadio.G31Ddc"        
+        xmlns:ctrl="clr-namespace:NetRadio.G31Ddc.Control"
+        xmlns:wcl="clr-namespace:WpfControlLibrary;assembly=WpfControlLibrary"
+        xmlns:pnl="clr-namespace:NetRadio.G31Ddc.PanelViewModel"        
+        xmlns:g3xddc="clr-namespace:NetRadio.Devices.G3XDdc;assembly=NetRadio.Devices.G3XDdc"        
+        xmlns:arction="clr-namespace:NetRadio.G31Ddc.Arction"
+        xmlns:water="clr-namespace:NetRadio.G31Ddc.WaterfallSample"        
+        xmlns:enums="clr-namespace:NetRadio.G31Ddc.Enums" 
+        Title="NetRadio" Width="1024" Height="768" MinWidth="1000" MinHeight="768"  
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None"
+        x:Name="MainWnd" Closing="MainWnd_Closing"
+        Icon="Radar.ico">
+    <!--xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"-->    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding Path=WindowClosing}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v"/>
+        <ObjectDataProvider x:Key="radioViewModel" ObjectType="{x:Type pnl:RadioViewModel}" MethodName="GetInstance" IsAsynchronous="True"/>        
+    </Window.Resources>
+    <Grid Background="{DynamicResource BrushedBack}">
+        <Grid.RowDefinitions>            
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{DynamicResource RadioBorder}" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Grid DataContext="{Binding Source={StaticResource radioViewModel}}">
+                        <!--<Grid.DataContext>
+                        <pnl:RadioViewModel/>
+                        </Grid.DataContext>-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.ColumnSpan="4" Grid.Row="21" Visibility="Hidden">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="True">General</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">Tuning</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Audio</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Memory</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Notch</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Squelch</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Gain</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">Noise Blanker</RadioButton>
+                        </Grid>
+
+                        <Grid Grid.ColumnSpan="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="35"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.RowSpan="3">
+                                <ctrl:FrequencyDisplay Frequency="{Binding Path=AbsoluteFrequency, Mode=TwoWay}"/>
+                            </Border>
+                            <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1" Command="{Binding Path=CommandOpenSetup}">
+                                <Button.ToolTip>
+                                    <ToolTip>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="Bold" Text="Setup"/>
+                                            <TextBlock Text="Open setup dialog for radio settings"/>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </Button.ToolTip>
+                                <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                    <Image Source="{StaticResource WhiteSettingsButton}" Margin="1"/>
+                                </Border>
+                            </Button>
+                            <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1" Grid.Row="1" Command="{Binding Path=CommandStartup}" CommandParameter="{Binding ElementName=MainWnd}">
+                                <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                    <Image Source="{StaticResource PowerButton}" Margin="1"/>
+                                </Border>
+                            </Button>
+                        </Grid>
+                        <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Grid.ColumnSpan="4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition Width="0"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Cw}, Mode=TwoWay}">CW</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Am}, Mode=TwoWay}">AM</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Dsb}, Mode=TwoWay}">DSB</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Lsb}, Mode=TwoWay}">LSB</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Usb}, Mode=TwoWay}">USB</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Isb}, Mode=TwoWay}">ISB</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Fm}, Mode=TwoWay}">FM</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Ams}, Mode=TwoWay}">AMS</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="8" IsChecked="{Binding Path=ModeState, Converter={StaticResource DemodulatorModeConverter}, ConverterParameter={x:Static g3xddc:DemodulatorMode.Drm}, Mode=TwoWay}">DRM</RadioButton>
+                            </Grid>
+                        </Border>
+
+                        <Border Style="{DynamicResource RadioBorder}" Grid.RowSpan="5" Grid.ColumnSpan="4" Grid.Row="15">
+                            <!--<ctrl:Knob KnobValue="{Binding Path=AbsoluteFrequency, Mode=TwoWay}" KnobStep="{Binding Path=FrequencyStep, Mode=TwoWay}" KnobMin="0" KnobMax="30"/>-->
+                            <ctrl:Knob KnobValue="{Binding Path=AbsoluteFrequency, Mode=TwoWay}" KnobStep="{Binding Path=FrequencyStep, Mode=TwoWay}"/>
+                        </Border>
+
+                        <Grid Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.85*"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1" Grid.RowSpan="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.2*"/>
+                                    <RowDefinition Height="0.6*"/>
+                                    <RowDefinition Height="0.2*"/>
+                                </Grid.RowDefinitions>
+                                <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=AudioFilterState, Mode=TwoWay}" Grid.Row="1">Filter</ToggleButton>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.ColumnSpan="4">
+                                <TextBlock Style="{DynamicResource RadioTitle}">Audio Filter</TextBlock>
+                            </Border>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}">Low</TextBlock>
+                            </Border>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="1" Grid.Row="2">
+                                <ctrl:Input Text="{Binding Path=CutOffLow, Mode=TwoWay}"/>
+                            </Border>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2" Grid.Row="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}">High</TextBlock>
+                            </Border>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="2" Grid.Row="2">
+                                <ctrl:Input Text="{Binding Path=CutOffHigh, Mode=TwoWay}"/>
+                            </Border>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}">De-em</TextBlock>
+                            </Border>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="3" Grid.Row="2">
+                                <ctrl:Input Text="{Binding Path=DeEmphasis, Mode=TwoWay}"/>
+                            </Border>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="4" Grid.Row="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}">Gain</TextBlock>
+                            </Border>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="4" Grid.Row="2">
+                                <ctrl:Input Text="{Binding Path=AudioGain, Mode=TwoWay}"/>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Row="5" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.ColumnSpan="2">
+                                <TextBlock Style="{DynamicResource RadioTitle}">Volume</TextBlock>
+                            </Border>
+                            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                                <Slider Value="{Binding Path=Volume}" Minimum="0" Maximum="1" TickFrequency="0.1" SmallChange="0.1" Margin="5,10,5,0"/>
+                            </Grid>
+                            <Grid Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border Style="{DynamicResource RadioBorder}">
+                                    <ctrl:Input Text="{Binding Path=Volume, Mode=TwoWay, StringFormat=F2}"/>
+                                </Border>
+                                <Grid Grid.Column="1" VerticalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Button Grid.Row="0" Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandSpectrumZoomIn}">+</Button>
+                                    <Button Grid.Row="1" Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandSpectrumZoomOut}">-</Button>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="0"/>
+                                    </Grid.RowDefinitions>
+                                    <ToggleButton IsChecked="{Binding Path=MuteState, Mode=TwoWay}" Grid.ColumnSpan="2" Margin="3,3,3,3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Image>
+                                            <Image.Style>
+                                                <Style TargetType="Image">
+                                                    <Setter Property="Source" Value="{StaticResource SpeakerImage}"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}" Value="True">
+                                                            <Setter Property="Source" Value="{StaticResource MuteImage}"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
+                                    </ToggleButton>
+                                    <ToggleButton Grid.Row="1" Style="{DynamicResource RadioSwitchIconButton}" IsChecked="{Binding Path=RecordingView.RecordAudioState, Mode=TwoWay}" Visibility="Hidden">¯</ToggleButton>
+                                    <ToggleButton Grid.Column="1" Grid.Row="1" Style="{DynamicResource RadioSwitchIconButton}" IsChecked="{Binding Path=RecordingView.RecordState, Mode=TwoWay}" Foreground="OrangeRed" Visibility="Hidden">n</ToggleButton>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="7" Grid.ColumnSpan="4" Grid.RowSpan="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+                                <TextBlock Style="{DynamicResource RadioTitle}">Automatic Gain Control (AGC)</TextBlock>
+                            </Border>
+
+                            <Grid Grid.Row="1" Grid.RowSpan="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="0"/>
+                                </Grid.RowDefinitions>
+                                <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=AgcState, Mode=TwoWay}">*AGC*</ToggleButton>
+                                <!--<RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Row="1" IsChecked="{Binding Path=AgcState, Mode=TwoWay}" MinWidth="54" HorizontalAlignment="Right">AGC</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Row="2" IsChecked="{Binding Path=AgcState, Mode=TwoWay}" MinWidth="54" HorizontalAlignment="Right">Manual</RadioButton>-->
+                            </Grid>
+
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Speed"/>
+                            </Border>
+                            <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding Path=SoftwareAgcState, Mode=TwoWay, Converter={StaticResource AgcConverter}, ConverterParameter={x:Static g3xddc:Agc.Off}}">Off</RadioButton>
+                                <RadioButton Grid.Column="1" Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding Path=SoftwareAgcState, Mode=TwoWay, Converter={StaticResource AgcConverter}, ConverterParameter={x:Static g3xddc:Agc.Slow}}">Slow</RadioButton>
+                                <RadioButton Grid.Column="2" Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding Path=SoftwareAgcState, Mode=TwoWay, Converter={StaticResource AgcConverter}, ConverterParameter={x:Static g3xddc:Agc.Medium}}">Med</RadioButton>
+                                <RadioButton Grid.Column="3" Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding Path=SoftwareAgcState, Mode=TwoWay, Converter={StaticResource AgcConverter}, ConverterParameter={x:Static g3xddc:Agc.Fast}}">Fast</RadioButton>
+                            </Grid>
+
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Gain"/>
+                            </Border>
+                            <ctrl:Input Grid.Column="3" Grid.Row="2" Text="{Binding Path=Gain, Mode=TwoWay}"/>
+
+                            <Grid Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition Width="0"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Border Style="{DynamicResource RadioTitleBorder}">
+                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Attack"/>
+                                </Border>
+                                <ctrl:Input Grid.Row="1" Text="{Binding Path=AgcAttackTime, Mode=TwoWay}"/>
+
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Decay"/>
+                                </Border>
+                                <ctrl:Input Grid.Column="1" Grid.Row="1" Text="{Binding Path=AgcDecayTime, Mode=TwoWay}"/>
+
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2">
+                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Reference"/>
+                                </Border>
+                                <ctrl:Input Grid.Column="2" Grid.Row="1" Text="{Binding Path=AgcReferenceLevel, Mode=TwoWay}"/>
+
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3">
+                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Max Agc Gain"/>
+                                </Border>
+                                <ctrl:Input Grid.Column="3" Grid.Row="1" Text="{Binding Path=MaxAgcGain, Mode=TwoWay}"/>
+                            </Grid>
+                        </Grid>
+
+                        <Border Grid.Row="12" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+                            <TextBlock Style="{DynamicResource RadioTitle}">Squelch</TextBlock>
+                        </Border>
+
+                        <Grid Grid.Row="13" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=SquelchView.IsEnable}" Grid.RowSpan="2" MinHeight="36" MinWidth="54" VerticalAlignment="Center" HorizontalAlignment="Right">Enable</ToggleButton>
+
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Level"/>
+                            </Border>
+                            <ctrl:Input Grid.Column="1" Grid.Row="1" Text="{Binding Path=SquelchView.Level, Mode=TwoWay}"/>
+
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2">
+                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Noise"/>
+                            </Border>
+                            <ctrl:Input Grid.Column="2" Grid.Row="1" Text="{Binding Path=SquelchView.Noise, Mode=TwoWay}"/>
+
+                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3">
+                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Voice"/>
+                            </Border>
+                            <ctrl:Input Grid.Column="3" Grid.Row="1" Text="{Binding Path=SquelchView.Voice, Mode=TwoWay}"/>
+                        </Grid>
+                    </Grid>                
+        </Border>
+        <Border Style="{DynamicResource RadioBorder}" Grid.ColumnSpan="9" Grid.Row="0">
+            <Grid DataContext="{Binding Source={StaticResource radioViewModel}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.RowSpan="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Bandwidth"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Row="1">
+                        <ComboBox ItemsSource="{Binding Path=AvailableDdc1}" SelectedItem="{Binding Path=ActiveDdc1}" DisplayMemberPath="Bandwidth" SelectedValuePath="Bandwidth"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="RBW"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="1" Grid.Row="1">
+                        <ComboBox ItemsSource="{Binding Path=Ddc1SpectrumView.Resolutions}" SelectedItem="{Binding Path=Ddc1SpectrumView.SelectedResolution}" DisplayMemberPath="Resolution" SelectedValuePath="Resolution"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="2" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=Ddc1Frequency}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Ddc2RelFreq"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="3" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=Ddc2RelativeFrequency}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="4">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Peak (MHz)"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="4" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=MeterViewDdc1.PeakFrequency, StringFormat=F3}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="5">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Peak (dBm)"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="5" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=MeterViewDdc1.PeakPower, StringFormat=F3}"/>
+                    </Border>
+                    <Button Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandTuneToPeak}" Grid.Column="6">TTP</Button>
+                    <Button Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandPeakToCenter}" Grid.Column="6" Grid.Row="1">CTP</Button>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.ColumnSpan="7">
+                        <arction:WaveformControl x:Name="WaveformDdc1"/>
+                    </Border>
+                </Grid>
+                <Grid Grid.Column="1" Grid.RowSpan="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="0.65*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="7*"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Bandwidth"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1">
+                        <ctrl:Input Text="{Binding Path=DemodulatorBandwidth, Mode=TwoWay}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="1" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=DemodulatorFrequency}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Peak (uVolt)"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="2" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=MeterViewDemodulator.PeakUVolts}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="RMS (dBm)"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="3" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=MeterViewDemodulator.RmsDbm}"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="4">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="RBW"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="4" Grid.Row="1">
+                        <ComboBox ItemsSource="{Binding Path=Ddc2SpectrumView.Resolutions}" SelectedItem="{Binding Path=Ddc2SpectrumView.SelectedResolution}" DisplayMemberPath="Resolution" SelectedValuePath="Resolution"/>
+                    </Border>
+                    <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="5" Grid.Row="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=MeterViewDemodulator.PeakFrequency}"/>
+                    </Border>
+                    <Border Grid.Column="6" Grid.Row="0" Grid.RowSpan="2">
+                        <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=AfcState}">AFC</ToggleButton>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.ColumnSpan="7">
+                        <arction:WaveformControl x:Name="WaveformDdc2"/>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Style="{DynamicResource RadioBorder}" Grid.ColumnSpan="9" Grid.Row="1">
+            <Grid DataContext="{Binding Source={StaticResource radioViewModel}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+                <Border Style="{DynamicResource RadioTitleBorder}">
+                    <TextBlock Style="{DynamicResource RadioTitle}" Text="RBW"/>
+                </Border>
+                <Border Style="{DynamicResource RadioNarrowBorder}" Grid.Column="1">
+                    <ComboBox ItemsSource="{Binding Path=IfSpectrumView.Resolutions}" SelectedItem="{Binding Path=IfSpectrumView.SelectedResolution}" DisplayMemberPath="Resolution" SelectedValuePath="Resolution"/>
+                </Border>
+                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2">
+                    <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=IfSpectrumView.Bandwidth}"/>
+                </Border>
+                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3">
+                    <TextBlock Style="{DynamicResource RadioTitle}" Text="{Binding Path=IfSpectrumView.Shift}"/>
+                </Border>
+                <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="True" x:Name="isSpectrum" Grid.Column="4">Spectrum</ToggleButton>
+                <Grid Grid.Row="1" Grid.ColumnSpan="14">
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=isSpectrum, Path=IsChecked}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <water:Waterfall x:Name="Waterfall" MarkerColor="BlueViolet"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=isSpectrum, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <arction:WaveformControl x:Name="WaveformIf"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

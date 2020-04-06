@@ -1,0 +1,1711 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arction.WPF.SignalTools</name>
+    </assembly>
+    <members>
+        <member name="T:Arction.WPF.SignalTools.UpDown">
+            <summary>
+            Interaction logic for UpDown.xaml
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UpDown.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UpDown.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.UpDown.Text">
+            <summary>
+            Gets or sets text of this object. Text property has priority over Content property. 
+            I.e. if you set both, only Text property's value is displayed in the text field.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.GUI.SignalGenerator">
+            <summary>
+            Interaction logic for SignalGenerator.xaml.
+            </summary>
+            <summary>
+            SignalGenerator
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.SignalGenerator.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.GUI.SignalGenerator.SelectedPage">
+            <summary>
+            Gets or sets selected page in UI.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.GUI.SignalGenerator.SelectedPageIndex">
+            <summary>
+            Gets or sets selected page index in UI.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlSquareTable">
+            <summary>
+            Interaction logic for UserControlSquareTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlSquareTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlFrequencySineSweepRow">
+            <summary>
+            Interaction logic for UserControlSineRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlFrequencySineSweepRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.AmplitudeSineSweepComponent">
+            <summary>
+            Sine amplitude sweep waveform component. Runs with constant frequency, from amplitude to another, during given duration.
+            Then jumps to start starting amplitude again. 
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.#ctor(Arction.WPF.SignalTools.AmplitudeSineSweepComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.AmplitudeFrom">
+            <summary>
+            Starting amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.AmplitudeTo">
+            <summary>
+            End amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.Offset">
+            <summary>
+            Offset of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.DurationMs">
+            <summary>
+            Duration of sine sweep in ms. Runs from starting amplitude to end amplitude during this duration. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.Frequency">
+            <summary>
+            Frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AmplitudeSineSweepComponent.Enabled">
+            <summary>
+            Is the sweep component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.ThreadTypeProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalReader.ThreadType dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.FactorProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalReader.Factor dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.FileNameProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalReader.FileName dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.IsLoopingProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalReader.Looping dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.LicenseKeyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalGenerator.LicenseKey dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.FileFilterString">
+            <summary>
+            Filter string for file open dialog.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.Factor">
+            <summary>
+            General factor for output signal. Allows using for example millivolt range by setting this 0.001, or 1E-3. This is a dependency propety.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.FileName">
+            <summary>
+            Gets/sets the name (full path) of the data file. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.Caption">
+            <summary>
+            Gets/sets optional caption for signal reader. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.IsLooping">
+            <summary>
+            Get/sets whether reading should continue from the beginning of the data file after end-of-file has been reached. Possible file header is skipped. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.ThreadType">
+            <summary>
+            Gets/sets the way how data is generated. Generates data either using a thread or a main UI thread synchronized timer.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.ThreadInvoking">
+            <summary>
+            Gets/sets whether signal reader automatically synchronizes its event to the main UI thread. If ThreadType is ThreadType.Timer then setting ThreadInvoking has no effect.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.IsReaderEnabled">
+            <summary>
+            Get/sets whether this instance is running or not. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.OutputInterval">
+            <summary>
+            Output interval in milliseconds. This is only the target value and not always accurate. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.SamplingFrequency">
+            <summary>
+            Gets sampling frequency. The count of output points calculated per second. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.ChannelCount">
+            <summary>
+            Gets channel count.  
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.Length">
+            <summary>
+            Gets the length of the source file in samples (for each channel).
+            For some file formats, this is an estimate. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.FileSize">
+            <summary>
+            Gets the size of the source file in bytes.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.BitsPerSample">
+            <summary>
+            Gets how many bits are for one sample.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReader.LicenseKey">
+            <summary>
+            License key in normal or encrypted format. This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.SignalReader.OpenResult">
+            <summary>
+            Open result.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.OpenResult.OK">
+            <summary>
+            File opened successfully.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.OpenResult.SignalReaderRunning">
+            <summary>
+            Signal reader is running.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.OpenResult.FileNotAccessible">
+            <summary>
+            File is not accessible.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.OpenResult.UnknownExtension">
+            <summary>
+            The extension is not one of the supported ones.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.OpenResult.UnknownWaveFormat">
+            <summary>
+            WAV audio format must be PCM. Others will fail.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.SignalReader.Marker">
+            <summary>
+            Marker.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.Marker.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalReader.Marker.TimeStamp">
+            <summary>
+            Time stamp.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlFrequencySineSweepTable">
+            <summary>
+            Interaction logic for UserControlSineTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlFrequencySineSweepTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.RandomNoiseComponent">
+            <summary>
+            Random noise waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RandomNoiseComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RandomNoiseComponent.#ctor(Arction.WPF.SignalTools.RandomNoiseComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RandomNoiseComponent.GetRandomValue">
+            <summary>
+            Get random value, using offset and amplitude 
+            </summary>
+            <returns>Random value, in range -Amplitude+Offset ... +Amplitude+Offset</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RandomNoiseComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RandomNoiseComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.RandomNoiseComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.RandomNoiseComponent.Amplitude">
+            <summary>
+            Amplitude of random noise component. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.RandomNoiseComponent.Offset">
+            <summary>
+            Offset of random noise component
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.RandomNoiseComponent.Enabled">
+            <summary>
+            Is the random noise component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.Filtering.FilterRoutines">
+            <summary>
+            Static methods for filtering 
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.Filtering.FilterRoutines.MovingAverage(System.Double[],System.Int32)">
+            <summary>
+            Moving (floating) average. Smoothens the given data, by calculating using value and neighbor values
+            </summary>
+            <param name="values">Input values</param>
+            <param name="windowLength">Averaging window length. Calculates output as average of each value and neighbours in range -windowLength/2...+windowLength/2</param>
+            <returns>Filtered data</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInputM.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of AudioInput.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInputM.DataGenerated">
+            <summary>
+            Occurs when new audio data has been generated.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInputM.Started">
+            <summary>
+            Occurs when audio input has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInputM.Stopped">
+            <summary>
+            Occurs when audio input has been stopped.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.RecordingDeviceInfo.Description">
+            <summary>
+            Recording device description.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.RecordingDeviceInfo.DriverGuid">
+            <summary>
+            Recording device id.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.RecordingDeviceInfo.ModuleName">
+            <summary>
+            Recording device module name.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RecordingDeviceInfo.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RecordingDeviceInfo.#ctor(System.String,System.Guid,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="description">Recording device description.</param>
+            <param name="driverId">Recording device id.</param>
+            <param name="moduleName">Recording device module name.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.RecordingDeviceInfo.ToString">
+            <summary>
+            Returns Description field value of this instance.
+            </summary>
+            <returns>Description of this instance</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGenerator.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of SignalGenerator class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGenerator.#ctor(System.String)">
+            <summary>
+            Default constructor. Creates and initializes a new instance of SignalGenerator class.
+            </summary>
+            /// <param name="licenseKey">License key in normal or encrypted format. 
+            Needed when creating the object dynamically at runtime with 'new' 
+            keyword and there is no controls of the same type inserted on any UI designer form.</param>
+            <remarks>If you provide your license this way, 
+            YOU ARE NOT ALLOWED TO DISTRIBUTE YOUR SOURCE CODE TO OTHERS. 
+            See License Agreement (EULA) for details. </remarks>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformSinesProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformSines dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformSquaresProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformSquares dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformTrianglesProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformTriangles dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformRandomNoisesProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformRandomNoises dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformFrequencySweepSinesProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformFrequencySweepSinesProperty dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.WaveformAmplitudeSweepSinesProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.WaveformAmplitudeSweepSinesProperty dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.FactorProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.Factor dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.IsGeneratorEnabledProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.IsGeneratorEnabled dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.SamplingFrequencyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.SamplingFrequency dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.MultiCoreProcessingProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.MultiCoreProcessing dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.GeneratorNameProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.GeneratorName dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.OutputIntervalProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.OutputIntervalMs dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.MasterGeneratorProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.Generator.SignalGenerator.MasterGenerator dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.ThreadTypeProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalGenerator.ThreadType dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.ThreadInvokingProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalGenerator.ThreadInvoking dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SignalGenerator.LicenseKeyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SignalGenerator.LicenseKey dependency property.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGenerator.#cctor">
+            <summary>
+            Static constructor.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.LicenseKey">
+            <summary>
+            License key in normal or encrypted format. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.ThreadType">
+            <summary>
+            Gets or sets the way how data is generated. Generates data either by using a thread or a main UI thread synchronized timer.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformSines">
+            <summary>
+            Get or sets sine waveform component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformSquares">
+            <summary>
+            Get or sets square waveform component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformTriangles">
+            <summary>
+            Get or sets triangle waveform component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformRandomNoises">
+            <summary>
+            Get or sets random noise waveform component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformAmplitudeSweepSines">
+            <summary>
+            Get or sets sine sweep amplitude component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.WaveformFrequencySweepSines">
+            <summary>
+            Get or sets sine sweep amplitude component collection. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.Factor">
+            <summary>
+            Get or sets a general factor for output signal. Allows using e.g. millivolt range by setting this 0.001, or 1E-3. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.IsGeneratorEnabled">
+            <summary>
+            Gets or sets the state of this generator (enabled or not). This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.SamplingFrequency">
+            <summary>
+            Gets or sets the sampling frequency, i.e. the number of output points generated per second. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.OutputInterval">
+            <summary>
+            Gets or sets the output interval of this generator in milliseconds. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.GeneratorName">
+            <summary>
+            Gets or sets the name of this signal generator. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.MultiCoreProcessing">
+            <summary>
+            Gets or sets whether multi-core processing is enabled. If enabled, computes the signal in multiple threads. 
+            Enables faster rendering when CPU has more cores than 1. Only certain parts of chart are multicore optimized. 
+            This is a dependency property.
+            </summary>
+            <remarks>When running the application from Visual Studio debugger, and this is enabled, 
+            the performance is worse than without multicore processing. When the application is run directly from
+            Windows, the performance is superb. 
+            </remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.MasterGenerator">
+            <summary>
+            Master generator. Several generators can be combined together to produce a synchronized multi-channel output data stream. 
+            Master sets the sampling frequency for each slave generator and combines the samples from each slave to master's output data stream.
+            Set this null if this is a master generator. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalGenerator.ThreadInvoking">
+            <summary>
+            Built-in invoking to UI thread when using ThreadType = Thread. 
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.GUI.AudioInput">
+            <summary>
+            Interaction logic for AudioInput.xaml.
+            </summary>
+            <summary>
+            AudioInput
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.AudioInput.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of AudioInput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.AudioInput.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.GUI.AudioInput.Input">
+            <summary>
+            Gets or sets AudioInput component that this GUI component controls.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlSquareRow">
+            <summary>
+            Interaction logic for UserControlSquareRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlSquareRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.Finalize">
+            <summary>
+            Finalizer.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.#ctor(System.String)">
+            <summary>
+            Constructor with license key, in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.PowerSpectrumOverlapped(System.Double[],System.Int32,System.Double,System.Double[]@,System.Int32@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values. Overlaps moving FFT window until all data is processed. 
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftWindowLength">Length of moving calculation window.</param>
+            <param name="overlapPercent">Overlapping percent. Moving FFT window is shifted by this amount for next calculation round. Valid values are 0...99</param>
+            <param name="fftData">Output FFT data. Length equals fftWindowLenght. If samples length is less than fftWindowLength, outputs samples length of data.</param>
+            <param name="processedSampleCount">Processed sample count. It is possible that all samples are not processed from the end, if there's not enough data for last FFT window.</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.PowerSpectrumOverlapped(System.Single[],System.Int32,System.Double,System.Single[]@,System.Int32@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values. Overlaps moving FFT window until all data is processed. 
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftWindowLength">Length of moving calculation window.</param>
+            <param name="overlapPercent">Overlapping percent. Moving FFT window is shifted by this amount for next calculation round. Valid values are 0...99</param>
+            <param name="fftData">Output FFT data. Length equals fftWindowLenght. If samples length is less than fftWindowLength, outputs samples length of data.</param>
+            <param name="processedSampleCount">Processed sample count. It is possible that all samples are not processed from the end, if there's not enough data for last FFT window.</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.CalculateForward(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates FFT conversion. Converts signal data into frequency component data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.CalculateForward(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates FFT conversion. Converts signal data into frequency component data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.CalculateBackward(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates backwards FFT conversion. Converts frequency component data into signal sample data. 
+            </summary>
+            <param name="samples">Output signal samples</param>
+            <param name="fftData">Input FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.CalculateBackward(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates backwards FFT conversion. Converts frequency component data into signal sample data. 
+            </summary>
+            <param name="samples">Output signal samples</param>
+            <param name="fftData">Input FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.PowerSpectrum(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values.  
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.PowerSpectrum(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values.  
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SpectrumCalculator.Dispose">
+            <summary>
+            Disposes unmanaged resources.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SpectrumCalculator.LicenseKeyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.SpectrumCalculator.LicenseKey dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SpectrumCalculator.LicenseKey">
+            <summary>
+            License key in normal or encrypted format. This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.ThreadType">
+            <summary>
+            Threading type
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.ThreadType.Thread">
+            <summary>
+            Use thread.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.ThreadType.Timer">
+            <summary>
+            Use timer.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.SelectedPage">
+            <summary>
+            Active page that is shown in the UI
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.Sines">
+            <summary>
+            Sine waveforms
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.Squares">
+            <summary>
+            Squares
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.Triangles">
+            <summary>
+            Triangles
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.RandomNoises">
+            <summary>
+            Random noises
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.FrequencySineSweeps">
+            <summary>
+            Frequency sine sweeps
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.AmplitudeSineSweeps">
+            <summary>
+            Amplitude sine sweeps
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.SelectedPage.All">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.ArrayProcessThreadInfo">
+            <summary>
+            Array process info for a thread 
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.ArrayProcessThreadInfo.StartIndex">
+            <summary>
+            Start array index 
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.ArrayProcessThreadInfo.Count">
+            <summary>
+            Count to process within the array
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.FrequencySineSweepComponent">
+            <summary>
+            Sine frequency sweep waveform component. Runs with constant amplitude, from frequency to another, during given duration.
+            Then jumps to start starting frequency again. 
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.FrequencySineSweepComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.FrequencySineSweepComponent.#ctor(Arction.WPF.SignalTools.FrequencySineSweepComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.FrequencySineSweepComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.FrequencySineSweepComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.Amplitude">
+            <summary>
+            Amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.Offset">
+            <summary>
+            Offset of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.DurationMs">
+            <summary>
+            Duration of sine sweep in ms. Runs from starting frequency to end frequency during this duration. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.FrequencyFrom">
+            <summary>
+            Start frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.FrequencyTo">
+            <summary>
+            End frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.FrequencySineSweepComponent.Enabled">
+            <summary>
+            Is the sweep component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.SquareComponent">
+            <summary>
+            Square waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SquareComponent.#ctor(Arction.WPF.SignalTools.SquareComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SquareComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SquareComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Amplitude">
+            <summary>
+            Amplitude of square component.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Offset">
+            <summary>
+            Offset of square component
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.DelayMs">
+            <summary>
+            Delay of square component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Frequency">
+            <summary>
+            Frequency of square component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Enabled">
+            <summary>
+            Is the square component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SquareComponent.Symmetry">
+            <summary>
+            Square wave symmetry. Valid range is 0...1.
+            If symmetry is &lt; 0.5, the 'low'stage of noise wave is longer than 'high' stage. 
+            Vice versa, value &gt; 0.5 makes the 'high' stage longer
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.TextBoxEx">
+            <summary>
+            Interaction logic for UserControlTextBoxEx.xaml
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.TextBoxEx.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutput.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of AudioOutput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutput.AddSamples(System.Double[][])">
+            <summary>
+            Use this method to feed new data to audio output stream.
+            </summary>
+            <param name="samples">Samples to be fed to audio output stream ([Channel][Sample]).</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutput.Start">
+            <summary>
+            Starts this instance. Is equivalent to setting IsOutputEnabled property true.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutput.StopRequest">
+            <summary>
+            Signals this instance to stop. Stopping does not occur immediately 
+            after exiting this method. By subscribing to Stopped event, caller 
+            is notified when everything has stopped.  Is equivalent to setting 
+            IsOutputEnabled property true.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.BalanceProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.Balance dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.BitsPerSampleProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.BitsPerSample dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.IsOutputEnabledProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.IsOutputEnabled dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.IsStereoProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.IsStereo dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.LicenseKeyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.LicenseKey dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.PlaybackDeviceProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.PlaybackDevice dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.SamplesPerSecondProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.SamplesPerSecond dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioOutput.VolumeProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioOutput.Volume dependency property.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioOutput.Started">
+            <summary>
+            Occurs when audio playback has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioOutput.Stopped">
+            <summary>
+            Occurs when audio playback has been stopped.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.Balance">
+            <summary>
+            Gets or sets audio playback balance. Valid values are between -100 to 100. 
+            -100 means that audio is played only through the left speaker. 0 means that 
+            both speakers output audio. 100 means that audio is played only through 
+            the right speaker. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.BitsPerSample">
+            <summary>
+            Gets or sets how many bits are allocated per sample. 
+            Supported values are 8 and 16. If other value is used, 
+            16 is used instead. Is settable when IsInputEnabled is false. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.IsOutputEnabled">
+            <summary>
+            Gets or sets the state of this instance (i.e. starts or stops it). 
+            Setting this property true is the same as calling Start method where 
+            false is the same as calling Stop method. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.IsStereo">
+            <summary>
+            Gets or sets whether to use two channels (stereo) or just one (mono). 
+            Is settable when IsInputEnabled is false. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.LicenseKey">
+            <summary>
+            License key string in normal or encrypted format. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.PlaybackDevice">
+            <summary>
+            Gets or sets the current playback device. Is settable when IsInputEnabled 
+            is false. By setting this property null, Windows' default playback device 
+            is used. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.SamplesPerSecond">
+            <summary>
+            Gets or sets sampling frequency. Is settable when IsInputEnabled is false. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioOutput.Volume">
+            <summary>
+            Gets or sets volume (0-100). Is settable when IsInputEnabled is false. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlAmplitudeSineSweepTable">
+            <summary>
+            Interaction logic for UserControlSineTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlAmplitudeSineSweepTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of AudioInput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.#ctor(System.String)">
+            <summary>
+            Constructor. Creates and initializes a new instance of AudioInput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.Connect(System.Object,Arction.WPF.SignalTools.DataGeneratedEventHandler,Arction.WPF.SignalTools.StartedEventHandler,Arction.WPF.SignalTools.StoppedEventHandler)">
+            <summary>
+            Connects this AudioInput instance to a target object that has at least one of the three event handlers defined.
+            </summary>
+            <param name="target">Target object that this AudioInput instance is connected with.</param>
+            <param name="dataGenerated">DataGeneratedEventHandler event handler.</param>
+            <param name="started">StartedEventHandler event handler.</param>
+            <param name="stopped">StoppedEventHandler event handler.</param>
+            <returns>True if connection was created succesfully. Otherwise false.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.Disconnect(System.Object)">
+            <summary>
+            Disconnects a target object from this AudioInput instance.
+            </summary>
+            <param name="target">Target object to be disconnected.</param>
+            <returns>True if target object was diconnected succesfully. Otherwise false.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.Start">
+            <summary>
+            Starts this instance. Is equivalent to setting IsInputEnabled property true.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.StopRequest">
+            <summary>
+            Signals this instance to stop. Stopping does not occur immediately 
+            after exiting this method. By subscribing to Stopped event, caller 
+            is notified when everything has stopped.  Is equivalent to setting 
+            IsInputEnabled property true.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.SamplesPerSecondProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.SamplesPerSecond dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.IsStereoProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.IsStereo dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.BitsPerSampleProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.BitsPerSample dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.VolumeProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.Volume dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.IsInputEnabledProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.IsInputEnabled dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.RecordingDeviceProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.RecordingDeviceProperty dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.LicenseKeyProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.LicenseKey dependency property.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.AudioInput.ThreadInvokingProperty">
+            <summary>
+            Identifies the Arction.WPF.SignalTools.AudioInput.ThreadInvoking dependency property.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioInput.GetRecordingDevices">
+            <summary>
+            Returns a list of RecordingDeviceInfo objects that describe available Windows recording devices.
+            </summary>
+            <returns>List of recording devices.</returns>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInput.DataGenerated">
+            <summary>
+            Occurs when new data has been generated.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInput.Started">
+            <summary>
+            Occurs when audio input has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioInput.Stopped">
+            <summary>
+            Occurs when audio input has been stopped.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.BitsPerSample">
+            <summary>
+            Gets or sets how many bits are allocated per sample. 
+            Supported values are 8 and 16. If other value is used, 
+            16 is used instead. Is settable when IsInputEnabled is false. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.IsInputEnabled">
+            <summary>
+            Gets or sets the state of this instance (i.e. starts or stops it). 
+            Setting this property true is the same as calling Start method where 
+            false is the same as calling Stop method. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.IsStereo">
+            <summary>
+            Gets or sets whether to use two channels (stereo) or just one (mono). 
+            Is settable when IsInputEnabled is false. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.LicenseKey">
+            <summary>
+            Gets or sets license key string in normal or encrypted format. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.RecordingDevice">
+            <summary>
+            Gets or sets the current recording device. Is settable when 
+            IsInputEnabled is false. By setting this property null, Windows' 
+            default recording device is used. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.SamplesPerSecond">
+            <summary>
+            Get or sets sampling frequency. Is settable when IsInputEnabled is false. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.ThreadInvoking">
+            <summary>
+            Gets or sets whether this instance automatically synchronizes its 
+            events to the main UI thread hence eliminating the need to call 
+            Dispatcher.Invoke method on caller's side. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.AudioInput.Volume">
+            <summary>
+            Gets or sets volume (0-100). Is settable when IsInputEnabled is false. 
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlSineRow">
+            <summary>
+            Interaction logic for UserControlSineRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlSineRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlRandomNoiseTable">
+            <summary>
+            Interaction logic for UserControlSineTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlRandomNoiseTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.TriangleComponent">
+            <summary>
+            Triangle waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.TriangleComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.TriangleComponent.#ctor(Arction.WPF.SignalTools.TriangleComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.TriangleComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.TriangleComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Amplitude">
+            <summary>
+            Amplitude of triangle component.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Offset">
+            <summary>
+            Offset of triangle component
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.DelayMs">
+            <summary>
+            Delay of triangle component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Frequency">
+            <summary>
+            Frequency of triangle component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Enabled">
+            <summary>
+            Is the triangle component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.TriangleComponent.Symmetry">
+            <summary>
+            Triangle wave symmetry. Valid range is 0...1.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.PlaybackDeviceInfo.Description">
+            <summary>
+            Playback device description.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.PlaybackDeviceInfo.DriverGuid">
+            <summary>
+            Playback device id.
+            </summary>
+        </member>
+        <member name="F:Arction.WPF.SignalTools.PlaybackDeviceInfo.ModuleName">
+            <summary>
+            Playback device module name.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.PlaybackDeviceInfo.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.PlaybackDeviceInfo.#ctor(System.String,System.Guid,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="description">Playback device description.</param>
+            <param name="driverId">Playback device id.</param>
+            <param name="moduleName">Playback device module name.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.PlaybackDeviceInfo.ToString">
+            <summary>
+            Returns Description field value of this instance.
+            </summary>
+            <returns>Description of this instance</returns>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.GUI.SignalReader">
+            <summary>
+            Interaction logic for SignalReader.xaml.
+            </summary>
+            <summary>
+            SignalReader
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.SignalReader.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlTriangleTable">
+            <summary>
+            Interaction logic for UserControlSquareTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlTriangleTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlTriangleRow">
+            <summary>
+            Interaction logic for UserControlSquareRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlTriangleRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlAmplitudeSineSweepRow">
+            <summary>
+            Interaction logic for UserControlSineRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlAmplitudeSineSweepRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalReaderM.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of SignalReaderM class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalReaderM.CloseFile">
+            <summary>
+            Close the opened file 
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalReaderM.ReadAllData(System.String,System.Int32@,System.Int32@,System.Double[][]@,Arction.WPF.SignalTools.SignalReader.Marker[]@)">
+            <summary>
+            Read all data from file. The output is a multi-channel samples array, and array of markers.  
+            </summary>
+            <param name="fileName">Signal file name. The file extension must be a supported one: wav, sid or ssd </param>
+            <param name="channelCount">Channel count</param>
+            <param name="samplingFrequency">Sampling frequency in Hz</param>
+            <param name="samples">Multi-channel samples array. First dimension is the channels, second dimension is samples.
+            For example, samples[2][9] gives access to 10th sample of 3rd channel.</param>
+            <param name="markers">Array of markers. Null if none was found.</param>
+            <returns>File open result</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalReaderM.ToString">
+            <summary>
+            Returns class description.
+            </summary>
+            <returns>Class description.</returns>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalReaderM.DataGenerated">
+            <summary>
+            New data generated. 
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalReaderM.MarkerRead">
+            <summary>
+            Marker read. 
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalReaderM.Started">
+            <summary>
+            Reader has been started
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalReaderM.Stopped">
+            <summary>
+            File reader has stopped. End of file has been reached and looping is not enabled. 
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalReaderM.EndOfFile">
+            <summary>
+            End of file has been reached
+            </summary>
+            <remarks>If Looping is set, this is called just before jumping to beging of the file.</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.FileFilterString">
+            <summary>
+            Filter string for file open dialog.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.SamplingFrequency">
+            <summary>
+            Gets sampling frequency. The number of output points calculated per second. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.ChannelCount">
+            <summary>
+            Channel count.  
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.Length">
+            <summary>
+            Length of opened file, in samples (for each channel).
+            For some file formats, this is an estimate. 
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.FileSize">
+            <summary>
+            File size in bytes
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SignalReaderM.BitsPerSample">
+            <summary>
+            Bits per sample.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlSineTable">
+            <summary>
+            Interaction logic for UserControlSineTable.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlSineTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.SineComponent">
+            <summary>
+            Sine waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SineComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SineComponent.#ctor(Arction.WPF.SignalTools.SineComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SineComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SineComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.Amplitude">
+            <summary>
+            Amplitude of sine component.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.Offset">
+            <summary>
+            Offset of sine component
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.DelayMs">
+            <summary>
+            Delay of sine component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.Frequency">
+            <summary>
+            Frequency of sine component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.SineComponent.Enabled">
+            <summary>
+            Is the sine component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.#ctor">
+            <summary>
+            Default constructor. Create and initializes a new instance of SignalGenerator class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.ToString">
+            <summary>
+            Convert class description to string.
+            </summary>
+            <returns>Class description.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.GetCoreCount">
+            <summary>
+            Returns the count of enabled CPU cores.
+            </summary>
+            <returns>Enabled core count.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.EnabledWaveFormComponentsCount">
+            <summary>
+            Get enabled waveform components count.
+            </summary>
+            <returns>Enabled components count</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.RequestStop">
+            <summary>
+            Stops the timer or the thread that is used in generating signal. 
+            If ThreadType is ThreadType.Thread then Stop method could exit 
+            before the thread is stopped. Subscribe to Stopped event which 
+            is triggered when signal generator is completely stopped (i.e. 
+            the timer or the thread is stopped).
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.DivideArrayForThreads(System.Int32,System.Int32)">
+            <summary>
+            Get multicore-processed array. Tells 
+            - how many threads are needed, 
+            - item count to process per thread 
+            - array index where the processing must start for each thread
+            </summary>
+            <param name="countItems">Array length, which is to processed in multi-core</param>
+            <param name="maxThreadCount">Maximum thread count to use. Give System.Environment.ProcessorCount, if no special reason to use less. </param>
+            <returns>Array process info per thread. Returned array length is the needed thread count.</returns>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.SignalGeneratorM.GenerateBlock(System.Int32)">
+            <summary>
+            Generates block of having given sample count, using properties set
+            </summary>
+            <param name="sampleCount">Sample count (for each channel)</param>
+            <returns>Multi-channel data array</returns>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalGeneratorM.DataGenerated">
+            <summary>
+            Occurs when new data is generated.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalGeneratorM.Started">
+            <summary>
+            Occurs when signal generator is started.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.SignalGeneratorM.Stopped">
+            <summary>
+            Occurs when signal generator is stopped.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.UserControlRandomNoiseRow">
+            <summary>
+            Interaction logic for UserControlSineRow.xaml.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.UserControlRandomNoiseRow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.GUI.AudioOutput">
+            <summary>
+            This class provides a GUI for Arction.WPF.SignalTools.AudioOutput 
+            object which can be accessed through Output or DataContext property.
+            </summary>
+            <summary>
+            AudioOutput
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.AudioOutput.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of 
+            Arction.WPF.Signaltools.GUI.AudioOutput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.GUI.AudioOutput.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:Arction.WPF.SignalTools.GUI.AudioOutput.Output">
+            <summary>
+            Gets or sets AudioOutput component that this GUI component controls.
+            </summary>
+        </member>
+        <member name="T:Arction.WPF.SignalTools.Action">
+            <summary>
+            A multi-purpose delegate to use when you need neither parameters nor a return value.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutputM.#ctor">
+            <summary>
+            Default constructor. Initializes a new instance of AudioOutput class.
+            </summary>
+        </member>
+        <member name="M:Arction.WPF.SignalTools.AudioOutputM.Finalize">
+            <summary>
+            Finalizer.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioOutputM.Started">
+            <summary>
+            Occurs when audio playback has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.WPF.SignalTools.AudioOutputM.Stopped">
+            <summary>
+            Occurs when audio playback has been stopped.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

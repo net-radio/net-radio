@@ -1,0 +1,47 @@
+﻿<Window x:Class="WpfControlTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:WpfControlLibrary;assembly=WpfControlLibrary"
+        xmlns:vm="clr-namespace:WpfControlTest.ViewModel"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <Grid DataContext="{Binding HoppingView}">
+            <!--<c:FrequencyDisplay Frequency="1000000"/>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <l:HoppingControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                              CommandStart="{Binding CommandStart}" 
+                              CommandStop="{Binding CommandStop}"
+                              FrequencyStart="{Binding FrequencyStart, Mode=TwoWay}" 
+                              FrequencyStop="{Binding FrequencyStop, Mode=TwoWay}"
+                              ThresholdMinimum="{Binding ThresholdMinimum, Mode=TwoWay}" 
+                              ThresholdMaximum="{Binding ThresholdMaximum, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                   Text="Frequency Start" TextAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding FrequencyStart, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                   Text="Frequency Stop" TextAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                 Text="{Binding FrequencyStop, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+        <StackPanel>
+            <l:FrequencyDisplay Frequency="{Binding Path=Frequency, Mode=TwoWay}" Precision="3" Grid.Row="3" Grid.ColumnSpan="2"/>
+            <TextBox Text="{Binding Path=Frequency, UpdateSourceTrigger=PropertyChanged}" Grid.Row="4" Grid.ColumnSpan="2"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

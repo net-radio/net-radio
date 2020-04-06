@@ -1,0 +1,117 @@
+﻿<Window x:Class="NetRadio.G31Ddc.Audio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:NetRadio.G31Ddc.Audio.ViewModels"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"        
+        xmlns:wpftk="http://www.arction.com/schemas/wpftoolkit"
+        xmlns:g3xddc="clr-namespace:NetRadio.Devices.G3XDdc;assembly=NetRadio.Devices.G3XDdc"
+        Title="MainWindow" Height="350" Width="525">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding WindowClosing}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <!--
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    -->
+    <Grid Background="{DynamicResource BrushedBack}">
+        <DockPanel>
+            <DockPanel.Resources>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Orientation" Value="Horizontal"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+                <Style x:Key="DecimalUpDownFrequency" TargetType="{x:Type wpftk:DecimalUpDown}">
+                    <!--
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type wpftk:DecimalUpDown}">
+                            <wpftk:ButtonSpinner x:Name="PART_Spinner" AllowSpin="{Binding AllowSpin, RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" ButtonSpinnerLocation="{Binding ButtonSpinnerLocation, RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" HorizontalContentAlignment="Stretch" IsTabStop="False" ShowButtonSpinner="{Binding ShowButtonSpinner, RelativeSource={RelativeSource TemplatedParent}}" VerticalContentAlignment="Stretch">
+                                <wpftk:WatermarkTextBox x:Name="PART_TextBox" Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" AutoMoveFocus="{Binding AutoMoveFocus, RelativeSource={RelativeSource TemplatedParent}}" AutoSelectBehavior="{Binding AutoSelectBehavior, RelativeSource={RelativeSource TemplatedParent}}" AcceptsReturn="False" BorderThickness="0" Background="Transparent" ContextMenu="{TemplateBinding ContextMenu}" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsTabStop="{TemplateBinding IsTabStop}" IsUndoEnabled="True" MinWidth="20" Padding="{TemplateBinding Padding}" SelectAllOnGotFocus="{Binding SelectAllOnGotFocus, RelativeSource={RelativeSource TemplatedParent}}" TextAlignment="{Binding TextAlignment, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="NoWrap" TabIndex="{TemplateBinding TabIndex}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" WatermarkTemplate="{Binding WatermarkTemplate, RelativeSource={RelativeSource TemplatedParent}}" Watermark="{Binding Watermark, RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </wpftk:ButtonSpinner>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                -->
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </DockPanel.Resources>
+
+            <StackPanel DockPanel.Dock="Bottom">
+                <TextBlock Text="Serial: " />
+                <TextBlock Text="{Binding Path=RadioView.Serial}" />
+            </StackPanel>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Style="{DynamicResource RadioTitleBorder}">
+                    <TextBlock Style="{DynamicResource RadioTitle}">Frequency</TextBlock>
+                </Border>
+
+                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                    <TextBlock Text="Demodulator Bandwidth" Style="{DynamicResource RadioTitle}"/>
+                </Border>
+
+                <TextBox Text="{Binding RadioView.AbsoluteFrequency}" Grid.Row="1" Style="{StaticResource RoundedRadioTextBox}"/>
+                <TextBox Text="{Binding RadioView.DemodulatorBandwidth}" Grid.Row="1" Grid.Column="1" Style="{StaticResource RoundedRadioTextBox}"/>
+
+                <Slider Grid.Row="2" Grid.ColumnSpan="2"  
+                    Minimum="0" Maximum="1" TickFrequency="0.1" SmallChange="0.1" 
+                    Value="{Binding Path=RadioView.Volume}"/>
+
+                <Border Grid.Column="0" Grid.ColumnSpan="2"  Grid.Row="3" Style="{DynamicResource RadioBorder}">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Cw}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="CW"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Am}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="AM"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Dsb}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="DSB"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Lsb}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="LSB"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Usb}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="USB"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Isb}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="ISB"/>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" IsChecked="{Binding RadioView.ModeState, ConverterParameter={x:Static g3xddc:DemodulatorMode.Fm}, Converter={StaticResource ModeConverter}, Mode=TwoWay}" Content="FM"/>
+                    </StackPanel>
+                </Border>
+
+                <ToggleButton Grid.Row="4" Grid.ColumnSpan="2"
+                          IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}">
+                    <Image Source="{StaticResource Speaker}" Grid.Row="3" Width="36">
+                        <Image.Style>
+                            <Style TargetType="{x:Type Image}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}" Value="True">
+                                        <Setter Property="Source" Value="{DynamicResource Speaker}" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}" Value="False">
+                                        <Setter Property="Source" Value="{DynamicResource Mute}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </ToggleButton>
+
+                <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding RadioView.MuteState}" Grid.Row="5">
+                    <TextBlock Text="Mute"/>
+                </ToggleButton>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

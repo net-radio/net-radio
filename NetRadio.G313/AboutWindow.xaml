@@ -1,0 +1,49 @@
+﻿<Window x:Class="NetRadio.G313.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="320" Width="480" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid Background="{DynamicResource BrushedBack}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >NetRadio - WinRadio G313 Compatible .Net SDR</TextBlock>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >Radio information</TextBlock>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >Name</TextBlock>
+        </Border>
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" IsReadOnly="True" Style="{DynamicResource RoundedRadioTextBox}" Text="{Binding Path=Name, Mode=OneTime}"></TextBox>
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >Serial</TextBlock>
+        </Border>
+        <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" IsReadOnly="True" Style="{DynamicResource RoundedRadioTextBox}" Text="{Binding Path=Serial , Mode=OneTime}"></TextBox>
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >Minimum Frequency</TextBlock>
+        </Border>
+        <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" IsReadOnly="True" Style="{DynamicResource RoundedRadioTextBox}" Text="{Binding Path=MinFrequency , Mode=OneTime}"></TextBox>
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource RadioTitleBorder}">
+            <TextBlock  Style="{DynamicResource RadioTitle}" >Maximum Frequency</TextBlock>
+        </Border>
+        <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" IsReadOnly="True" Style="{DynamicResource RoundedRadioTextBox}" Text="{Binding Path=MaxFrequency , Mode=OneTime}"></TextBox>
+        <Button  Grid.Row="8" Grid.Column="3"  Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandClose}">Close</Button>
+    </Grid>
+    
+</Window>

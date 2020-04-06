@@ -1,0 +1,51 @@
+﻿<l:UserControlBase x:Class="WpfControlLibrary.FrequencyDisplay"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:l="clr-namespace:WpfControlLibrary"
+                   xmlns:e="clr-namespace:WpfControlLibrary.DataTypes.Enums;assembly=WpfControlLibrary"
+                   x:Name="parent" mc:Ignorable="d" 
+                   d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/WpfControlLibrary;component/Resources.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/WpfControlLibrary;component/ThemeExtensions.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/WpfControlLibrary;component/Converters.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding ElementName=parent}">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Foreground" Value="Wheat"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Style="{DynamicResource FrequencyBox}" Name="__FrequencyBox" 
+                     Text="{Binding Frequency, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource FrequencyConverter}}"/>
+        <TextBox Style="{DynamicResource FrequencyBox}" Text="{Binding Precision, ConverterParameter={x:Static e:MetricPrefix.k}, Converter={StaticResource PrecisionConverter}}" 
+                     Grid.Column="1" IsReadOnly="False"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=FrequencyBox}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <TextBlock Text="GHz"/>
+            <TextBlock Text="MHz"/>
+            <TextBlock Text="KHz"/>
+            <TextBlock Text="Hz"/>
+        </StackPanel>
+    </Grid>
+</l:UserControlBase>

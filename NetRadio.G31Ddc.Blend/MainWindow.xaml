@@ -1,0 +1,1764 @@
+﻿<Window x:Class="NetRadio.G31Ddc.Blend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:blnd="clr-namespace:NetRadio.G31Ddc.Blend"
+        xmlns:ctrl="clr-namespace:NetRadio.G31Ddc.Blend.Control"
+        xmlns:wcl="clr-namespace:WpfControlLibrary;assembly=WpfControlLibrary"
+        Title="NetRadio" Width="1024" Height="768" MinWidth="1000" MinHeight="768"  
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None"
+        Icon="Radar.ico">
+    <i:Interaction.Behaviors>
+        <blnd:HideCloseButtonOnWindow />
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="b2v" />
+    </Window.Resources>
+    <Grid Background="{DynamicResource BrushedBack}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{DynamicResource RadioBorder}" Grid.ColumnSpan="9" Grid.RowSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" MinWidth="200"/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Bottom" Height="Auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource UserPushButton}" Grid.Column="0" Command="{Binding CommandNewGroup}">
+                            <TextBlock Style="{DynamicResource UserTitle}" Text="New"/>
+                        </Button>
+                        <Button Style="{DynamicResource UserPushButton}" Grid.Column="1">
+                            <TextBlock Style="{DynamicResource UserTitle}" Text="Edit"/>
+                        </Button>
+                        <Button Style="{DynamicResource UserPushButton}" Grid.Column="2">
+                            <TextBlock Style="{DynamicResource UserTitle}" Text="Delete"/>
+                        </Button>
+                        <Button Style="{DynamicResource UserPushButton}" Grid.Column="3">
+                            <TextBlock Style="{DynamicResource UserTitle}" Text="Show"/>
+                        </Button>
+                    </Grid>
+
+                    <TreeView ItemsSource="{Binding Items}">
+
+                        <!--<TreeView.Resources>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:FrequencyGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource Memory}" Height="20"/>
+                                    <TextBlock x:Name="MemoryHeader" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:SignalSearchGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource Search}" Height="20"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:SignalSearchHistoryGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource Search}" Height="20"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:SignalScanGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource Scan}" Height="20"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:HoppingGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource HoppingImage}" Height="20"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type usr:SignalSkipGroup}" ItemsSource="{Binding Items}">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Image Source="{StaticResource SkipImage}" Height="20"/>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                        </TreeView.Resources>-->
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectedItemChanged">
+                                <i:InvokeCommandAction Command="{Binding CommandSelectedItemChanged}" CommandParameter="argument"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+                        <!--SelectedItemChanged="UserMemoryGroup_SelectedItemChanged"-->
+                        <!--<TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate ItemsSource="{Binding Items}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="/WpfTutorialSamples;component/Images/user.png" Margin="0,0,5,0" />
+                                                <TextBlock Text="{Binding Title}" Margin="0,0,4,0" />
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>-->
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="{x:Type TreeViewItem}">
+                                <Setter Property="IsSelected" Value="{Binding IsSelected}" />
+                                <Setter Property="IsExpanded" Value="{Binding IsExpanded}" />
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                    </TreeView>
+                </DockPanel>
+
+                <!--<GridSplitter Style="{DynamicResource GridColumnsSplitter}" Grid.Column="1" />-->
+                <GridSplitter Style="{DynamicResource GridColumnsSplitter}" Grid.Column="1" />
+
+
+                <Grid Grid.Column="2">
+                    <Grid Visibility="Hidden">
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Bottom" Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="0" Command="{Binding MemoryView.CommandNewEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="New"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="1" Command="{Binding MemoryView.CommandEditEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="2" Command="{Binding MemoryView.CommandDeleteEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3" Command="{Binding MemoryView.CommandPasteEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Paste" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="4" Command="{Binding MemoryView.CommandApply}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Apply" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="5" Command="{Binding MemoryView.CommandApplyBack}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Back" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="6" Command="{Binding MemoryView.CommandApplyNext}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Next" />
+                                </Button>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}">
+                                <!--<ListView ItemsSource="{Binding MemoryCollection}" SelectedItem="{Binding SelectedMemory}" SelectionMode="Single">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                                            <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                            <GridViewColumn Header="Bandwidth" DisplayMemberBinding="{Binding Bandwidth}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>-->
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Bottom" Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="0" Command="{Binding SearchView.CommandNewSearchEntry}" x:Name="UserScanNewButton">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="New"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="1" Command ="{Binding SearchView.CommandEditSearchEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="2" Command ="{Binding SearchView.CommandDeleteSearchEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3" Command="{Binding SearchView.CommandCopySearchEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Copy"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="4">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Move"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="5">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Squelch"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="6" Command="{Binding SearchView.CommandStartSearch}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Search"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="7" Command="{Binding SearchView.CommandStopSearch}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Stop"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="8" Command="{Binding SearchView.CommandPauseSearch}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Pause"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="9" Command="{Binding SearchView.CommandResumeSearch}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Resume"/>
+                                </Button>
+                                <ToggleButton Style="{DynamicResource UserSwitchButton}" Grid.Column="10" IsChecked="{Binding SearchView.JammingState}" Height="{Binding ElementName=UserScanNewButton, Path=ActualHeight}">
+                                    <TextBlock Text="Jamming" Padding="5,0,5,0">
+                                        <TextBlock.Resources>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource UserTitle}">
+                                                <Setter Property="Foreground" Value="Orange"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}" Value="True">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Resources>
+                                    </TextBlock>
+                                </ToggleButton>
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="11">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="{Binding ScanView.Message}"/>
+                                </Border>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}">
+
+                            </Border>
+                            <!--<ListView Margin="3" SelectedItem="{Binding SearchView.SelectedSearch}"
+										ItemsSource="{Binding SearchView.SearchCollection}" SelectionMode="Single">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="FrequencyStart" DisplayMemberBinding="{Binding StartFrequency}" />
+                                        <GridViewColumn Header="FrequencyStop" DisplayMemberBinding="{Binding StopFrequency}" />
+                                        <GridViewColumn Header="SignalLevel" DisplayMemberBinding="{Binding SignalLevel}" />
+                                        <GridViewColumn Header="Step" DisplayMemberBinding="{Binding Step}" />
+                                        <GridViewColumn Header="Dewel Time" DisplayMemberBinding="{Binding DelayTime}" />
+                                        <GridViewColumn Header="Mode" DisplayMemberBinding="{Binding Mode}" />
+                                        <GridViewColumn Header="ReactivationTime" DisplayMemberBinding="{Binding ReactivationTime}" />
+                                        <GridViewColumn Header="Resolution" DisplayMemberBinding="{Binding Resolution}" />
+                                        <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding Duration}" />
+                                        <GridViewColumn Header="Callsign" DisplayMemberBinding="{Binding Callsign}" />
+                                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>-->
+                        </DockPanel>
+                        <GridSplitter Style="{DynamicResource GridRowsSplitter}" Grid.Row="1" />
+                        <DockPanel Grid.Row="2">
+                            <Grid DockPanel.Dock="Bottom" Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="1">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="2" Command="{Binding SearchView.CommandCopySearchResultEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Copy"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3" Command="{Binding SearchView.CommandSaveSearchResultHistory}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Save"/>
+                                </Button>
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="4">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="{Binding SearchView.Message}" />
+                                </Border>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}">
+                                <!--<ListView Margin="3" SelectedItem="{Binding SearchView.SelectedSearchResult}"
+										ItemsSource="{Binding SearchView.SearchResultCollection}" SelectionMode="Single">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                                        <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" />
+                                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
+                                        <GridViewColumn Header="Mode" DisplayMemberBinding="{Binding Mode}" />
+                                        <GridViewColumn Header="Squlech" DisplayMemberBinding="{Binding Squlech}" />
+                                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding HitCount}" />
+                                        <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding HitDuration}" />
+                                        <GridViewColumn Header="Stage" DisplayMemberBinding="{Binding Stage}" />
+                                        <GridViewColumn Header="Hit Start" DisplayMemberBinding="{Binding HitStartTime, StringFormat=HH:mm:ss.fff}" />
+                                        <GridViewColumn Header="Hit End" DisplayMemberBinding="{Binding HitEndTime, StringFormat=HH:mm:ss.fff}" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>-->
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Visibility="Hidden">
+                        <Border Style="{DynamicResource RadioBorder}">
+                            <!--<ListView Margin="3" SelectedItem="{Binding SearchView.SelectedSearchResult}"
+									ItemsSource="{Binding SearchView.SearchResultCollection}" SelectionMode="Single">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                                        <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" />
+                                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
+                                        <GridViewColumn Header="Mode" DisplayMemberBinding="{Binding Mode}" />
+                                        <GridViewColumn Header="Squlech" DisplayMemberBinding="{Binding Squlech}" />
+                                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding FrequncyHitCount}" />
+                                        <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding FrequencyHitDuration}" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>-->
+                        </Border>
+                    </Grid>
+                    <Grid Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Bottom" Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding ScanView.CommandNewScanEntry}" x:Name="UserSearchNewButton">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="New"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="1" Command="{Binding ScanView.CommandEditScanEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="2" Command="{Binding ScanView.CommandDeleteScanEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Copy"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Move"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="4" Command="{Binding ScanView.CommandStartScan}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Sacn/Tune"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="5" Command="{Binding ScanView.CommandStopScan}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Stop"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="6" Command="{Binding ScanView.CommandPauseScan}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Pause"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="7" Command="{Binding ScanView.CommandResumeScan}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Resume"/>
+                                </Button>
+                                <ToggleButton Style="{DynamicResource UserSwitchButton}" Grid.Column="8" IsChecked="{Binding ScanView.JammingState}" Height="{Binding ElementName=UserSearchNewButton, Path=ActualHeight}">
+                                    <TextBlock Text="Jamming">
+                                        <TextBlock.Resources>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource UserTitle}">
+                                                <Setter Property="Foreground" Value="Orange"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}, Path=IsChecked}" Value="True">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Resources>
+                                    </TextBlock>
+                                </ToggleButton>
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="9">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="{Binding ScanView.Message}" />
+                                </Border>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}">
+                                <!--<ListView Margin="1" ItemsSource="{Binding ScanView.ScanCollection}"
+										SelectionMode="Single" SelectedItem="{Binding ScanView.SelectedScan}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                            <GridViewColumn Header="ScanLevel" DisplayMemberBinding="{Binding SignalLevel}" />
+                                            <GridViewColumn Header="DewelTime" DisplayMemberBinding="{Binding DelayTime}" />
+                                            <GridViewColumn Header="Mode" DisplayMemberBinding="{Binding ScanType}" />
+                                            <GridViewColumn Header="Squelch" DisplayMemberBinding="{Binding Squelch}" />
+                                            <GridViewColumn Header="Resolution" DisplayMemberBinding="{Binding Resolution}" />
+                                            <GridViewColumn Header="Callsign" DisplayMemberBinding="{Binding Callsign}" />
+                                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>-->
+                            </Border>
+                        </DockPanel>
+                        <GridSplitter Style="{DynamicResource GridRowsSplitter}" Grid.Row="1"/>
+                        <DockPanel Grid.Row="2">
+                            <Grid DockPanel.Dock="Bottom">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="1">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="2" Command="{Binding ScanView.CommandCopySearchResultEntry}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Copy"/>
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Grid.Column="3" Command="{Binding ScanView.CommandSaveSearchResultHistory}">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Save"/>
+                                </Button>
+                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="4">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="{Binding ScanView.Message}"/>
+                                </Border>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}">
+                                <!--<ListView Margin="3" SelectedItem="{Binding ScanView.SelectedScanResult}"
+										ItemsSource="{Binding ScanView.ScanResultCollection}" SelectionMode="Single">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                                            <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" />
+                                            <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Time}" />
+                                            <GridViewColumn Header="Mode" DisplayMemberBinding="{Binding Mode}" />
+                                            <GridViewColumn Header="Squlech" DisplayMemberBinding="{Binding Squlech}" />
+                                            <GridViewColumn Header="Count" DisplayMemberBinding="{Binding HitCount}" />
+                                            <GridViewColumn Header="Duration" DisplayMemberBinding="{Binding HitDuration}" />
+                                            <GridViewColumn Header="Stage" DisplayMemberBinding="{Binding Stage}" />
+                                            <GridViewColumn Header="Hit Start" DisplayMemberBinding="{Binding HitStartTime, StringFormat=HH:mm:ss.fff}" />
+                                            <GridViewColumn Header="Hit End" DisplayMemberBinding="{Binding HitEndTime, StringFormat=HH:mm:ss.fff}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>-->
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <wcl:HoppingControl CommandStart="{Binding HoppingView.Start}" 
+                                            CommandStop="{Binding HoppingView.Stop}"
+                                            FrequencyStart="{Binding HoppingView.FrequencyStart, Mode=TwoWay}" 
+                                            FrequencyStop="{Binding HoppingView.FrequencyStop, Mode=TwoWay}"
+                                            ThresholdMinimum="{Binding HoppingView.ThresholdMinimum, Mode=TwoWay}" 
+                                            ThresholdMaximum="{Binding HoppingView.ThresholdMaximum, Mode=TwoWay}"
+                                            Gain="{Binding HoppingView.Gain, Mode=TwoWay}"
+                                            Grid.RowSpan="4" Grid.ColumnSpan="5"/>
+                    </Grid>
+
+                    <Grid Visibility="Visible">
+                        <DockPanel>
+                            <Grid DockPanel.Dock="Bottom" Height="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding SkipView.CommandNewEntry}" Grid.Column="0">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="New" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding SkipView.CommandEditEntry}" Grid.Column="1">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Edit" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding SkipView.CommandDeleteEntry}" Grid.Column="2">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Delete" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding SkipView.CommandPasteEntry}" Grid.Column="3">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Paste" />
+                                </Button>
+                                <Button Style="{DynamicResource UserPushButton}" Command="{Binding SkipView.CommandApply}" Grid.Column="4">
+                                    <TextBlock Style="{DynamicResource UserTitle}" Text="Apply" />
+                                </Button>
+                            </Grid>
+
+                            <Border Style="{DynamicResource RadioBorder}">
+                                <!--
+                            <ListView ItemsSource="{Binding SkipView.SkipCollection}" SelectionMode="Single"
+										SelectedItem="{Binding SkipView.SelectedSkip}" Margin="3">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                                        <GridViewColumn Header="Frequency" DisplayMemberBinding="{Binding Frequency}" />
+                                        <GridViewColumn Header="Bandwidth" DisplayMemberBinding="{Binding Bandwidth}" />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            -->
+                            </Border>
+                        </DockPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Style="{DynamicResource RadioBorder}" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Style="{DynamicResource RadioSelectorButton}" x:Name="rbtnRadio">Radio</RadioButton>
+                    <RadioButton Style="{DynamicResource RadioSelectorButton}" x:Name="rbtnReceiver" Grid.Column="1" IsChecked="True">Receiver</RadioButton>
+                </Grid>
+                <Grid Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnRadio, Converter={StaticResource b2v}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.ColumnSpan="4" Grid.Row="21">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" IsChecked="True">General</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">Tuning</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Audio</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Memory</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Notch</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Squelch</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Gain</RadioButton>
+                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">Noise Blanker</RadioButton>
+                    </Grid>
+
+                    <Grid Grid.ColumnSpan="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="35"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="35"/>
+                        </Grid.RowDefinitions>
+                        <Border Style="{DynamicResource RadioBorder}" Grid.RowSpan="3">
+                            <ctrl:FrequencyDisplay Frequency="87000000"/>
+                        </Border>
+                        <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1">
+                            <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                <Image Source="{StaticResource WhiteSettingsButton}" Margin="1"></Image>
+                            </Border>
+                        </Button>
+                        <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1" Grid.Row="1">
+                            <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                <Image Source="{StaticResource PowerButton}" Margin="1"></Image>
+                            </Border>
+                        </Button>
+                    </Grid>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Grid.ColumnSpan="4">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0">CW</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">AM</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">DSB</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">LSB</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">USB</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">ISB</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">FM</RadioButton>
+                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">AMS</RadioButton>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{DynamicResource RadioBorder}" Grid.RowSpan="5" Grid.ColumnSpan="4" Grid.Row="15">
+                        <ctrl:Knob Grid.Row="3" Width="150" Height="150" KnobMin="0" KnobMax="30" KnobValue="{Binding Path=FrequencyValue ,Mode=TwoWay}" KnobStep="{Binding Path=FrequencyStep, Mode=TwoWay}"></ctrl:Knob>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Audio Filter</TextBlock>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="0" Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Low</TextBlock>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="0">
+                        <ctrl:Input Text="0.01"></ctrl:Input>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="3" Grid.Column="1">
+                        <TextBlock Style="{DynamicResource RadioTitle}">High</TextBlock>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="1">
+                        <ctrl:Input Text="0.50"></ctrl:Input>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2" Grid.Row="3">
+                        <TextBlock Style="{DynamicResource RadioTitle}">De-em</TextBlock>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Column="2" Grid.Row="4">
+                        <ctrl:Input Text="0.5"></ctrl:Input>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="3">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Gain</TextBlock>
+                    </Border>
+                    <Border Style="{DynamicResource RadioBorder}" Grid.Column="3" Grid.Row="4">
+                        <ctrl:Input Text="-70.0"></ctrl:Input>
+                    </Border>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Volume</TextBlock>
+                    </Border>
+                    <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2">
+                        <Slider Value="{Binding Volume}" Minimum="0" Maximum="1" TickFrequency="0.1" SmallChange="0.1" Margin="5,10,5,0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Style="{DynamicResource RadioBorder}">
+                            <!--<ctrl:Input Grid.Row="5" Grid.Column="2" Text="{Binding Path=VolumeValue, Mode=TwoWay}"/>-->
+                            <ctrl:Input Text="7"/>
+                        </Border>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandSpectrumZoomIn}">+</Button>
+                            <Button Grid.Row="1" Style="{DynamicResource RadioPushButton}" Command="{Binding Path=CommandSpectrumZoomOut}">-</Button>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+
+
+                            <!--<ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=MuteState}">Mute</ToggleButton>-->
+                            <ctrl:ImageToggleButton Grid.ColumnSpan="2" Margin="3,3,3,3" EnabledUnchecked="Resources/mute.png" EnabledChecked="Resources/speaker.png" VerticalAlignment="Center" HorizontalAlignment="Center"></ctrl:ImageToggleButton>
+
+                            <ToggleButton Grid.Column="0" Grid.Row="1" Style="{DynamicResource RadioSwitchIconButton}" IsChecked="{Binding Path=RecordingView.RecordAudioState, Mode=TwoWay}">¯</ToggleButton>
+                            <ToggleButton Grid.Column="1" Grid.Row="1" Style="{DynamicResource RadioSwitchIconButton}" IsChecked="{Binding Path=RecordingView.RecordState, Mode=TwoWay}" Foreground="OrangeRed">n</ToggleButton>
+
+                        </Grid>
+                    </Grid>
+
+                    <Border Grid.Row="7" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Automatic Gain Control (AGC)</TextBlock>
+                    </Border>
+
+                    <RadioButton IsChecked="{Binding AgcState, Mode=TwoWay}" Style="{DynamicResource RadioSelectorButton}" Grid.Row="8" MinWidth="54" HorizontalAlignment="Right">AGC</RadioButton>
+                    <RadioButton IsChecked="{Binding AgcState, Mode=TwoWay}" Style="{DynamicResource RadioSelectorButton}" Grid.Row="9" MinWidth="54" HorizontalAlignment="Right">Manual</RadioButton>
+
+
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Speed"/>
+                    </Border>
+                    <Grid Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Grid.Column="0" Style="{DynamicResource RadioSelectorButton}">Off</RadioButton>
+                        <RadioButton Grid.Column="1" Style="{DynamicResource RadioSelectorButton}">Slow</RadioButton>
+                        <RadioButton Grid.Column="2" Style="{DynamicResource RadioSelectorButton}">Med</RadioButton>
+                        <RadioButton Grid.Column="3" Style="{DynamicResource RadioSelectorButton}">Fast</RadioButton>
+                    </Grid>
+
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="8">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Gain"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="1" Grid.Row="13" Text="{Binding Path=Gain, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="3" Grid.Row="9" Text="-10"/>
+
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="0" Grid.Row="10">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Attack"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="0" Grid.Row="11" Text="{Binding Path=AgcAttackTime, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="0" Grid.Row="11" Text="0.015"/>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="10">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Decay"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="1" Grid.Row="11" Text="{Binding Path=AgcDecayTime, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="1" Grid.Row="11" Text="0.025"/>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2" Grid.Row="10">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Reference"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="2" Grid.Row="11" Text="{Binding Path=AgcReferenceLevel, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="2" Grid.Row="11" Text="-10"/>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="10">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Max Agc Gain"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="3" Grid.Row="11" Text="{Binding Path=MaxAgcGain, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="3" Grid.Row="11" Text="0.015"/>
+
+                    <Border Grid.Row="12" Grid.ColumnSpan="4" Style="{DynamicResource RadioTitleBorder}">
+                        <TextBlock Style="{DynamicResource RadioTitle}">Squelch</TextBlock>
+                    </Border>
+
+                    <ToggleButton IsChecked="{Binding AgcState, Mode=TwoWay}" Style="{DynamicResource RadioSwitchButton}" Grid.Row="13" Grid.RowSpan="2" MinHeight="36" MinWidth="54" VerticalAlignment="Center" HorizontalAlignment="Right">Enable</ToggleButton>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="13">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Level"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="0" Grid.Row="11" Text="{Binding Path=AgcAttackTime, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="1" Grid.Row="14" Text="0.015"/>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2" Grid.Row="13">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Noise"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="1" Grid.Row="11" Text="{Binding Path=AgcDecayTime, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="2" Grid.Row="14" Text="0.025"/>
+                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="13">
+                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Voice"/>
+                    </Border>
+                    <!--<ctrl:Input Grid.Column="2" Grid.Row="11" Text="{Binding Path=AgcReferenceLevel, Mode=TwoWay}"/>-->
+                    <ctrl:Input Grid.Column="3" Grid.Row="14" Text="-10"/>
+
+                </Grid>
+                <Grid Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnReceiver, Converter={StaticResource b2v}}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="25" Grid.ColumnSpan="4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="0"/>
+                                </Grid.ColumnDefinitions>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" x:Name="rbtnTxConfig" IsChecked="True">Config</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1" x:Name="rbtnTxMonitoring" IsChecked="False">Monitoring</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2" x:Name="rbtnTxSelfTest" IsChecked="False">Self Test</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3" x:Name="rbtnTxLogger" IsChecked="False">Logger</RadioButton>
+                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4" x:Name="rbtnTxViewConfig" IsChecked="False">View Config</RadioButton>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.ColumnSpan="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="35"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="35"/>
+                            </Grid.RowDefinitions>
+                            <Border Style="{DynamicResource RadioBorder}" Grid.RowSpan="3">
+                                <ctrl:FrequencyDisplay Frequency="87000000" />
+                            </Border>
+                            <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1">
+                                <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                    <Image Source="{StaticResource WhiteSettingsButton}" Margin="1"></Image>
+                                </Border>
+                            </Button>
+                            <Button Style="{DynamicResource RadioPushIconButton}" Grid.Column="1" Grid.Row="1">
+                                <Border Background="{DynamicResource DarkBrush}" Margin="3" CornerRadius="3">
+                                    <Image Source="{StaticResource PowerButton}" Margin="1"></Image>
+                                </Border>
+                            </Button>
+                        </Grid>
+
+                        <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="12">
+                            <Grid x:Name="TransmitterCommonGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.ColumnSpan="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Style="{DynamicResource RadioTitleBorder}">
+                                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Mode"/>
+                                    </Border>
+                                    <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">Spot</RadioButton>
+                                    <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Multi Spot</RadioButton>
+                                    <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Sweep</RadioButton>
+                                    <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Barrage</RadioButton>
+                                    <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Comb</RadioButton>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.ColumnSpan="4" x:Name="ModulationGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Style="{DynamicResource RadioTitleBorder}">
+                                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Modulation"/>
+                                    </Border>
+                                    <RadioButton Grid.Column="1" Style="{DynamicResource RadioSelectorButton}">CW</RadioButton>
+                                    <RadioButton Grid.Column="2" Style="{DynamicResource RadioSelectorButton}">AM</RadioButton>
+                                    <RadioButton Grid.Column="3" Style="{DynamicResource RadioSelectorButton}">DSB</RadioButton>
+                                    <RadioButton Grid.Column="4" Style="{DynamicResource RadioSelectorButton}">LSB</RadioButton>
+                                    <RadioButton Grid.Column="5" Style="{DynamicResource RadioSelectorButton}">USB</RadioButton>
+                                    <RadioButton Grid.Column="6" Style="{DynamicResource RadioSelectorButton}" x:Name="TxModulationIsb">ISB</RadioButton>
+                                    <RadioButton Grid.Column="7" Style="{DynamicResource RadioSelectorButton}" x:Name="TxModulationFm">FM</RadioButton>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition>
+                                            <ColumnDefinition.Style>
+                                                <Style TargetType="{x:Type ColumnDefinition}">
+                                                    <Setter Property="Width" Value="0" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=TxModulationIsb}" Value="True">
+                                                            <Setter Property="Width" Value="*" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ColumnDefinition.Style>
+                                        </ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="0">
+                                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Source1"/>
+                                    </Border>
+                                    <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                                        <TextBlock Style="{DynamicResource RadioTitle}" Text="Source2"/>
+                                    </Border>
+                                    <Grid Grid.Column="0" Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition>
+                                                <ColumnDefinition.Style>
+                                                    <Style TargetType="{x:Type ColumnDefinition}">
+                                                        <Setter Property="Width" Value="0" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Path=IsChecked, ElementName=TxModulationFm}" Value="True">
+                                                                <Setter Property="Width" Value="*" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </ColumnDefinition.Style>
+                                            </ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" x:Name="Source1Line1">Line1</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1" x:Name="Source1Line2">Line2</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2" x:Name="Source1Mic">Mic</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3" x:Name="Source1Mmc">Mmc</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4" x:Name="Source1Tone">Tone</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5" x:Name="Source1Noise">Noise</RadioButton>
+                                    </Grid>
+                                    <Grid Grid.Column="1" Grid.Row="1">
+                                        <Grid.Style>
+                                            <Style TargetType="{x:Type Grid}">
+                                                <Setter Property="Visibility" Value="Hidden" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Path=IsChecked, ElementName=TxModulationIsb}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition Width="0"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" x:Name="Source2Line1">Line1</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1" x:Name="Source2Line2">Line2</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2" x:Name="Source2Mic">Mic</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3" x:Name="Source2Mmc">Mmc</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4" x:Name="Source2Tone">Tone</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5" x:Name="Source2Noise">Noise</RadioButton>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition>
+                                            <RowDefinition.Style>
+                                                <Style TargetType="{x:Type RowDefinition}">
+                                                    <Setter Property="Height" Value="0" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=Source1Tone}" Value="True">
+                                                            <Setter Property="Height" Value="{Binding ElementName=ModulationGrid, Path=ActualHeight}" />
+                                                        </DataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=TxModulationIsb}" Value="True"/>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=Source2Tone}" Value="True"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Height" Value="{Binding ElementName=ModulationGrid, Path=ActualHeight}" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RowDefinition.Style>
+                                        </RowDefinition>
+                                        <RowDefinition>
+                                            <RowDefinition.Style>
+                                                <Style TargetType="{x:Type RowDefinition}">
+                                                    <Setter Property="Height" Value="0" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=Source1Noise}" Value="True">
+                                                            <Setter Property="Height" Value="{Binding ElementName=ModulationGrid, Path=ActualHeight}" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RowDefinition.Style>
+                                        </RowDefinition>
+                                        <RowDefinition>
+                                            <RowDefinition.Style>
+                                                <Style TargetType="{x:Type RowDefinition}">
+                                                    <Setter Property="Height" Value="0" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=Source1Mic}" Value="True">
+                                                            <Setter Property="Height" Value="{Binding ElementName=ModulationGrid, Path=ActualHeight}" />
+                                                        </DataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=TxModulationIsb}" Value="True"/>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=Source2Mic}" Value="True"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Height" Value="{Binding ElementName=ModulationGrid, Path=ActualHeight}" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RowDefinition.Style>
+                                        </RowDefinition>
+                                        <RowDefinition>
+                                            <RowDefinition.Style>
+                                                <Style TargetType="{x:Type RowDefinition}">
+                                                    <Setter Property="Height" Value="0" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=IsChecked, ElementName=Source1Mmc}" Value="True">
+                                                            <Setter Property="Height" Value="2*" />
+                                                        </DataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=TxModulationIsb}" Value="True"/>
+                                                                <Condition Binding="{Binding Path=IsChecked, ElementName=Source2Mmc}" Value="True"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="Height" Value="2*" />
+                                                        </MultiDataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </RowDefinition.Style>
+                                        </RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Style="{DynamicResource RadioTitleBorder}">
+                                            <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                        </Border>
+                                        <Border Style="{DynamicResource RadioBorder}" Grid.Column="1">
+                                            <ctrl:Input Text="{Binding ToneFrequency}"/>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Style="{DynamicResource RadioTitleBorder}">
+                                            <TextBlock Style="{DynamicResource RadioTitle}" Text="Bandwidth (KHz)"/>
+                                        </Border>
+                                        <Grid Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0">Off</RadioButton>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">R1</RadioButton>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">R3</RadioButton>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">R6</RadioButton>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">R13</RadioButton>
+                                            <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">R25</RadioButton>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Border Style="{DynamicResource RadioTitleBorder}">
+                                            <TextBlock Style="{DynamicResource RadioTitle}" Text="Mic Volume"/>
+                                        </Border>
+                                        <Border Style="{DynamicResource RadioBorder}" Grid.Column="1">
+                                            <ctrl:Input Text="{Binding MicVolume}"/>
+                                        </Border>
+                                    </Grid>
+                                    <Grid Grid.Row="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="{Binding ElementName=ModulationGrid, Path=ActualHeight}"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Border Style="{DynamicResource RadioTitleBorder}">
+                                            <TextBlock Style="{DynamicResource RadioTitle}" Text="Mmc"/>
+                                        </Border>
+                                        <Border Style="{DynamicResource RadioBorder}" Grid.Column="1" Grid.RowSpan="2">
+                                        </Border>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1.2*"/>
+                                        <RowDefinition Height="0.6*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <ToggleButton Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding Path=ConnectionState}" Grid.Column="1">
+                                        <TextBlock Text="Connection"/>
+                                    </ToggleButton>
+                                    <CheckBox Style="{DynamicResource RadioCheckButton}" IsChecked="{Binding LightweightStatusView.Warning, Mode=OneWay}" IsEnabled="False" Grid.Column="2">Warning</CheckBox>
+                                    <!--<CheckBox Style="{DynamicResource RadioCheckButton}" IsChecked="{Binding LightweightStatusView.Error, Mode=OneWay}" IsEnabled="False" Grid.Column="3">Error</CheckBox>-->
+                                    <CheckBox Style="{DynamicResource RadioCheckButton}" IsChecked="True" IsEnabled="False" Grid.Column="3">Error</CheckBox>
+                                    <Slider Grid.Row="1" Grid.ColumnSpan="5" Margin="10,0,10,0" Minimum="{Binding PowerMinimum}" Maximum="{Binding PowerMaximum}" TickFrequency="100" SmallChange="100" Value="{Binding Power}" VerticalAlignment="Center"/>
+                                    <Grid Grid.Row="2" Grid.ColumnSpan="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="12*"/>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="3*"/>
+                                        </Grid.RowDefinitions>
+                                        <ToggleButton Grid.Column="1" Grid.Row="2" Style="{DynamicResource RadioSwitchButton}" IsChecked="{Binding RfOutState}">
+                                            <TextBlock Text="Carrier"/>
+                                        </ToggleButton>
+                                        <ToggleButton Style="{DynamicResource RadioSwitchButton}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" IsChecked="{Binding PowerState}" Margin="10,0,10,0">
+                                            <TextBlock Text="Power"/>
+                                        </ToggleButton>
+                                        <Button Style="{DynamicResource RadioPushButton}" Grid.Column="3" Grid.Row="2" Command="{Binding CommandReset}">
+                                            <TextBlock Text="Reset"/>
+                                        </Button>
+                                    </Grid>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <Grid Grid.Row="13" Grid.ColumnSpan="4" Grid.RowSpan="12">
+                            <Grid Visibility="{Binding IsChecked, ElementName=rbtnTxConfig, Converter={StaticResource b2v}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" MinHeight="30"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="Auto" MinHeight="40"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0" x:Name="rbtnTxCfgSpot" IsChecked="True">Spot</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1" x:Name="rbtnTxCfgMultiSpot">Multi Spot</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2" x:Name="rbtnTxCfgBarrage">Barrage</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3" x:Name="rbtnTxCfgSweep">Sweep</RadioButton>
+                                        <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4" x:Name="rbtnTxCfgComb">Comb</RadioButton>
+                                    </Grid>
+                                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnTxCfgSpot, Converter={StaticResource b2v}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Style="{DynamicResource RadioTitleBorder}">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <!--<ctrl:Input Grid.Column="3" Grid.Row="11" Text="{Binding Path=MaxAgcGain, Mode=TwoWay}"/>-->
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="1">
+                                                <ctrl:Input Text="6000000"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.ColumnSpan="3">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Modulation"/>
+                                            </Border>
+                                            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="0">Cw</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="1">Am</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Fm</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Usb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Lsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Dsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Isb</RadioButton>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnTxCfgMultiSpot, Converter={StaticResource b2v}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.ColumnSpan="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.ColumnSpan="2">
+                                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Modulation"/>
+                                                </Border>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Cw</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Am</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Fm</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Usb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Lsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">Dsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="8">Isb</RadioButton>
+                                            </Grid>
+
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="0">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Spot"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="2">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Time"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="3">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Spot"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="4">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="5">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Time"/>
+                                            </Border>
+
+                                            <ToggleButton Grid.Row="2" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">1</ToggleButton>
+                                            <ToggleButton Grid.Row="3" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">2</ToggleButton>
+                                            <ToggleButton Grid.Row="4" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">3</ToggleButton>
+                                            <ToggleButton Grid.Row="5" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">4</ToggleButton>
+                                            <ToggleButton Grid.Row="6" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">5</ToggleButton>
+                                            <ToggleButton Grid.Row="7" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">6</ToggleButton>
+                                            <ToggleButton Grid.Row="8" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">7</ToggleButton>
+                                            <ToggleButton Grid.Row="9" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">8</ToggleButton>
+                                            <ToggleButton Grid.Row="2" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">9</ToggleButton>
+                                            <ToggleButton Grid.Row="3" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">10</ToggleButton>
+                                            <ToggleButton Grid.Row="4" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">11</ToggleButton>
+                                            <ToggleButton Grid.Row="5" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">12</ToggleButton>
+                                            <ToggleButton Grid.Row="6" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">13</ToggleButton>
+                                            <ToggleButton Grid.Row="7" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">14</ToggleButton>
+                                            <ToggleButton Grid.Row="8" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">15</ToggleButton>
+                                            <ToggleButton Grid.Row="9" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">16</ToggleButton>
+
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="1" >
+                                                <ctrl:Input Text="100000" />
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="7" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="8" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="9" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="7" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="8" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="9" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="2" >
+                                                <ctrl:Input Text="35" />
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="7" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="8" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="9" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="7" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="8" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="9" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnTxCfgBarrage, Converter={StaticResource b2v}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Style="{DynamicResource RadioTitleBorder}">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="1">
+                                                <ctrl:Input Text="6000000"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Bandwidth"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Grid.Column="1">
+                                                <ctrl:Input Text="1000"/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnTxCfgSweep, Converter={StaticResource b2v}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.ColumnSpan="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.ColumnSpan="2">
+                                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Modulation"/>
+                                                </Border>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Cw</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Am</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Fm</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Usb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Lsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">Dsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="8">Isb</RadioButton>
+                                            </Grid>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="0" Grid.Row="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Start"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="0">
+                                                <ctrl:Input Text="1000"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="1" Grid.Row="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Stop"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="1" Grid.Row="2">
+                                                <ctrl:Input Text="1000"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="2" Grid.Row="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Time"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="2" Grid.Row="2">
+                                                <ctrl:Input Text="1000"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Column="3" Grid.Row="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Step"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Column="3" Grid.Row="2">
+                                                <ctrl:Input Text="1000"/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Border Style="{DynamicResource RadioBorder}" Grid.Row="1" Visibility="{Binding IsChecked, ElementName=rbtnTxCfgComb, Converter={StaticResource b2v}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.ColumnSpan="6">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Border Style="{DynamicResource RadioTitleBorder}" Grid.ColumnSpan="2">
+                                                    <TextBlock Style="{DynamicResource RadioTitle}" Text="Modulation"/>
+                                                </Border>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="2">Cw</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="3">Am</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="4">Fm</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="5">Usb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="6">Lsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="7">Dsb</RadioButton>
+                                                <RadioButton Style="{DynamicResource RadioSelectorButton}" Grid.Column="8">Isb</RadioButton>
+                                            </Grid>
+
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="0">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="No"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="1">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="2">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Phase"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="3">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="No"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="4">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Frequency"/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioTitleBorder}" Grid.Row="1" Grid.Column="5">
+                                                <TextBlock Style="{DynamicResource RadioTitle}" Text="Phase"/>
+                                            </Border>
+
+                                            <ToggleButton Grid.Row="2" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">1</ToggleButton>
+                                            <ToggleButton Grid.Row="3" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">2</ToggleButton>
+                                            <ToggleButton Grid.Row="4" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">3</ToggleButton>
+                                            <ToggleButton Grid.Row="5" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">4</ToggleButton>
+                                            <ToggleButton Grid.Row="6" Grid.Column="0" Style="{DynamicResource RadioSwitchButton}">5</ToggleButton>
+                                            <ToggleButton Grid.Row="2" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">6</ToggleButton>
+                                            <ToggleButton Grid.Row="3" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">7</ToggleButton>
+                                            <ToggleButton Grid.Row="4" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">8</ToggleButton>
+                                            <ToggleButton Grid.Row="5" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">9</ToggleButton>
+                                            <ToggleButton Grid.Row="6" Grid.Column="3" Style="{DynamicResource RadioSwitchButton}">10</ToggleButton>
+
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="1" >
+                                                <ctrl:Input Text="100000" />
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="1">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="4">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="2" >
+                                                <ctrl:Input Text="35" />
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="2">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="2" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="3" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="4" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="5" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                            <Border Style="{DynamicResource RadioBorder}" Grid.Row="6" Grid.Column="5">
+                                                <ctrl:Input Text=""/>
+                                            </Border>
+                                        </Grid>
+                                    </Border>
+                                    <Grid Grid.Row="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Style="{DynamicResource RadioPushButton}" Grid.Column="1">Apply</Button>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Border Style="{DynamicResource RadioBorder}" Visibility="{Binding IsChecked, ElementName=rbtnTxMonitoring, Converter={StaticResource b2v}}">
+
+
+                            </Border>
+                            <Border Style="{DynamicResource RadioBorder}" Visibility="{Binding IsChecked, ElementName=rbtnTxSelfTest, Converter={StaticResource b2v}}"></Border>
+                            <Border Style="{DynamicResource RadioBorder}" Visibility="{Binding IsChecked, ElementName=rbtnTxLogger, Converter={StaticResource b2v}}"></Border>
+                            <Border Style="{DynamicResource RadioBorder}" Visibility="{Binding IsChecked, ElementName=rbtnTxViewConfig, Converter={StaticResource b2v}}"></Border>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Style="{DynamicResource RadioBorder}" Grid.ColumnSpan="9" Grid.Row="3">
+
+        </Border>
+        <Border Style="{DynamicResource RadioBorder}" Grid.ColumnSpan="9" Grid.Row="4">
+
+        </Border>
+    </Grid>
+</Window>

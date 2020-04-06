@@ -1,0 +1,193 @@
+﻿<Window x:Class="EighthBit.Exciter.TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EighthBit.Exciter.TestApp"
+        xmlns:vm="clr-namespace:EighthBit.Exciter.TestApp.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="800">
+    <Window.DataContext>
+        <vm:ExciterViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Command="{Binding Path=CommandExciterInitialize}">Connect</Button>
+                <Button Grid.Column="1" Command="{Binding Path=CommandExciterUninitialize}">Disconnect</Button>
+                <Button Grid.Column="2" Command="{Binding Path=CommandSelfTest}">Self Test</Button>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="LightweightStatusView">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <ToggleButton IsChecked="{Binding Path=ConnectionState}" Grid.Column="0" Grid.RowSpan="2">Connection</ToggleButton>
+
+                            <TextBlock Text="Power" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Path=LightweightStatusView.Power}" Grid.Column="1" Grid.Row="1"/>
+
+                            <TextBlock Text="Vswr" Grid.Column="2"/>
+                            <TextBlock Text="{Binding Path=LightweightStatusView.Vswr}" Grid.Column="2" Grid.Row="1"/>
+
+                            <CheckBox IsChecked="{Binding Path=LightweightStatusView.Warning, Mode=OneWay}" Grid.Column="3" Grid.Row="1">Warning</CheckBox>
+                            <CheckBox IsChecked="{Binding Path=LightweightStatusView.Error, Mode=OneWay}" Grid.Column="4" Grid.Row="1">Error</CheckBox>
+                            <CheckBox IsChecked="{Binding Path=LightweightStatusView.PowerOn, Mode=OneWay}" Grid.Column="5" Grid.Row="1">Power On</CheckBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Supply Tray" Grid.Row="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Path=PowerSupplyView.Power, Mode=OneWay}">Power</CheckBox>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Path=PowerSupplyView.PsOn, Mode=OneWay}">PS-ON</CheckBox>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding Path=PowerSupplyView.PowerGood, Mode=OneWay}">PG</CheckBox>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding Path=PowerSupplyView.PsFault, Mode=OneWay}">PS-Fault</CheckBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Power Tray1" Grid.Row="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Path=PowerTray1View.PreDrive, Mode=OneWay}">Pre-Drive</CheckBox>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Path=PowerTray1View.Module1, Mode=OneWay}">Mod1</CheckBox>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding Path=PowerTray1View.Module2, Mode=OneWay}">Mod2</CheckBox>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding Path=PowerTray1View.Module3, Mode=OneWay}">Mod3</CheckBox>
+                            <CheckBox Grid.Column="4" IsChecked="{Binding Path=PowerTray1View.Module4, Mode=OneWay}">Mod4</CheckBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Power Tray2" Grid.Row="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Path=PowerTray2View.PreDrive, Mode=OneWay}">Pre-Drive</CheckBox>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Path=PowerTray2View.Module1, Mode=OneWay}">Mod1</CheckBox>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding Path=PowerTray2View.Module2, Mode=OneWay}">Mod2</CheckBox>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding Path=PowerTray2View.Module3, Mode=OneWay}">Mod3</CheckBox>
+                            <CheckBox Grid.Column="4" IsChecked="{Binding Path=PowerTray2View.Module4, Mode=OneWay}">Mod4</CheckBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Warnings" Grid.Row="4">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Path=WarningsView.VswrModule, Mode=OneWay}">VSWR Module</CheckBox>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Path=WarningsView.OverCurrentModule, Mode=OneWay}">Over Current Module</CheckBox>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding Path=WarningsView.OverReflectModule, Mode=OneWay}">Over Reflect Module</CheckBox>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding Path=WarningsView.FuseModule, Mode=OneWay}">Fuse Module</CheckBox>
+                            <CheckBox Grid.Column="4" IsChecked="{Binding Path=WarningsView.OverTemp, Mode=OneWay}">OverTemp</CheckBox>
+                            <CheckBox Grid.Column="0" Grid.Row="1">Reduce Power</CheckBox>
+                            <CheckBox Grid.Column="1" Grid.Row="1">RF-Unit in</CheckBox>
+                            <CheckBox Grid.Column="2" Grid.Row="1" IsChecked="{Binding Path=WarningsView.UnderVoltage, Mode=OneWay}">Under Voltage</CheckBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Errors" Grid.Row="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Path=ErrorsView.PowerGoodFailure, Mode=OneWay}">Power Good Failure</CheckBox>
+                            <CheckBox Grid.Column="1" IsChecked="{Binding Path=ErrorsView.PsFault, Mode=OneWay}">Ps Fault</CheckBox>
+                            <CheckBox Grid.Column="2" IsChecked="{Binding Path=ErrorsView.RfFault, Mode=OneWay}">Rf Fault</CheckBox>
+                            <CheckBox Grid.Column="3" IsChecked="{Binding Path=ErrorsView.FuseFailure, Mode=OneWay}">Fuse Failure</CheckBox>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="0" IsChecked="{Binding Path=SelfTestView.Initialize, Mode=OneWay}">Initialize</CheckBox>
+                    <CheckBox Grid.Row="1" IsChecked="{Binding Path=SelfTestView.Supply, Mode=OneWay}">Supply</CheckBox>
+                    <CheckBox Grid.Row="2" IsChecked="{Binding Path=SelfTestView.OutputProbe, Mode=OneWay}">Output Probe</CheckBox>
+                    <CheckBox Grid.Row="3" IsChecked="{Binding Path=SelfTestView.PreDrive1, Mode=OneWay}">Pre-Drive1</CheckBox>
+                    <CheckBox Grid.Row="4" IsChecked="{Binding Path=SelfTestView.Module1, Mode=OneWay}">Module1</CheckBox>
+                    <CheckBox Grid.Row="5" IsChecked="{Binding Path=SelfTestView.Module2, Mode=OneWay}">Module2</CheckBox>
+                    <CheckBox Grid.Row="6" IsChecked="{Binding Path=SelfTestView.Module3, Mode=OneWay}">Module3</CheckBox>
+                    <CheckBox Grid.Row="7" IsChecked="{Binding Path=SelfTestView.Module4, Mode=OneWay}">Module4</CheckBox>
+                    <CheckBox Grid.Column="1" Grid.Row="3" IsChecked="{Binding Path=SelfTestView.PreDrive2, Mode=OneWay}">Pre-Drive2</CheckBox>
+                    <CheckBox Grid.Column="1" Grid.Row="4" IsChecked="{Binding Path=SelfTestView.Module5, Mode=OneWay}">Module5</CheckBox>
+                    <CheckBox Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=SelfTestView.Module6, Mode=OneWay}">Module6</CheckBox>
+                    <CheckBox Grid.Column="1" Grid.Row="6" IsChecked="{Binding Path=SelfTestView.Module7, Mode=OneWay}">Module7</CheckBox>
+                    <CheckBox Grid.Column="1" Grid.Row="7" IsChecked="{Binding Path=SelfTestView.Module8, Mode=OneWay}">Module8</CheckBox>
+                </Grid>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

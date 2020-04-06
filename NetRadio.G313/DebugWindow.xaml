@@ -1,0 +1,26 @@
+﻿<Window x:Class="NetRadio.G313.DebugWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpg="clr-namespace:System.Windows.Controls"
+        xmlns:control="clr-namespace:NetRadio.G313.Control"
+        Title="Under The Hood" Height="480" Width="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <wpg:WpfPropertyGrid x:Name="PropertyGrid" Style="{x:Null}" Margin="5" Background="DarkGray" ></wpg:WpfPropertyGrid>
+        </Grid>
+
+        <ListBox Margin="5" Style="{x:Null}" Background="DarkGray" Name="CommandList" Grid.Row="0" Grid.Column="0" SelectionChanged="CommandList_OnSelectionChanged"></ListBox>
+        <TextBox Name="Value"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{x:Null}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></TextBox>
+        <Button Name="ExecuteButton" Style="{x:Null}" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" Click="ExecuteButton_OnClick">Execute</Button>
+    </Grid>
+</Window>

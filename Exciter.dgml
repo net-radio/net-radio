@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="122.106598825114,-54.9456025899063,129.6,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterModel" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ExciterModel" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc.Sample/ExciterModel.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Class" Bounds="24.6945771813497,221.568360995265,168.713333333333,141.9203" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterSubSystem" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="ExciterSubSystem" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=33 StartCharacterOffset=4 EndLineNumber=33 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@15" Category="CodeSchema_Method" Bounds="-132.439770482274,574.039670827652,116.773333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="HoppingSwitch" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="HoppingSwitch" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=277 StartCharacterOffset=8 EndLineNumber=277 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@16" Category="CodeSchema_Method" Bounds="-36.1564371489406,350.199670827652,66.8366666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="RfOut" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="RfOut" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=136 StartCharacterOffset=8 EndLineNumber=136 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Method" Bounds="-13.5397704822738,462.119670827652,103.44,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="RequestData" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="RequestData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=301 StartCharacterOffset=8 EndLineNumber=301 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@19" Category="CodeSchema_Method" Bounds="-132.439770482274,629.999670827652,128.136666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="StartDataTransfer" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="StartDataTransfer" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=324 StartCharacterOffset=8 EndLineNumber=324 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@21" Category="CodeSchema_Method" Bounds="48.049510077704,116.044742581929,111.326666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CommonLabel="ExciterBarrage" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterBarrage" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=260 StartCharacterOffset=8 EndLineNumber=260 EndCharacterOffset=8)" />
+    <Node Id="@22" Category="CodeSchema_Method" Bounds="314.443043409103,116.044742581929,102.393333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterComb" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterComb" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=381 StartCharacterOffset=8 EndLineNumber=381 EndCharacterOffset=8)" />
+    <Node Id="@23" Category="CodeSchema_Method" Bounds="-239.660689923901,116.044742581929,122.513333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CommonLabel="ExciterMultiSpot" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterMultiSpot" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=335 StartCharacterOffset=8 EndLineNumber=335 EndCharacterOffset=8)" />
+    <Node Id="@24" Category="CodeSchema_Method" Bounds="189.376276741928,116.044742581929,95.0666666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CommonLabel="ExciterSpot" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterSpot" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=89 StartCharacterOffset=8 EndLineNumber=89 EndCharacterOffset=8)" />
+    <Node Id="@25" Category="CodeSchema_Method" Bounds="44.694583895217,317.509866068641,128.713333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsProtected="True" CommonLabel="ExciterSubSystem" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterSubSystem" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=37 StartCharacterOffset=8 EndLineNumber=37 EndCharacterOffset=8)" />
+    <Node Id="@26" Category="CodeSchema_Method" Bounds="-87.1472565908234,116.044742581929,105.196666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsInternal="True" CommonLabel="ExciterSweep" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterSweep" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=203 StartCharacterOffset=8 EndLineNumber=203 EndCharacterOffset=8)" />
+    <Node Id="@27" Category="CodeSchema_Method" Bounds="119.900229517726,462.119670827652,103.44,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="RequestData" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="RequestData" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=311 StartCharacterOffset=8 EndLineNumber=311 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_Method" Bounds="253.434243810886,462.119677923828,106.624666666667,25.953088" CodeSchemaProperty_IsPublic="True" CommonLabel="ControlMode" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="ControlMode" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=285 StartCharacterOffset=8 EndLineNumber=285 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@29" Category="CodeSchema_Method" Bounds="329.140229517726,406.159670827652,88.2433333333333,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterApi" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterApi" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=85 StartCharacterOffset=8 EndLineNumber=85 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@30" Category="CodeSchema_Method" Bounds="46.6803327875612,40.0653974301937,117.8688,25.9588940800001" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterManager" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterManager" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=730 StartCharacterOffset=8 EndLineNumber=730 EndCharacterOffset=8)" />
+    <Node Id="@31" Category="CodeSchema_Method" Bounds="46.3418218729532,145.113789778802,129.6,25" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" CommonLabel="ExciterModel" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Constructor" Label="ExciterModel" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/ExciterModel.cs StartLineNumber=12 StartCharacterOffset=8 EndLineNumber=12 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@33" Category="CodeSchema_Method" Bounds="-18.9731038156072,406.159670827652,84.71,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="PowerOn" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="PowerOn" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=112 StartCharacterOffset=8 EndLineNumber=112 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@35" Category="CodeSchema_Method" Bounds="135.966896184393,294.239670827652,64.0933333333334,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Line1" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Line1" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=144 StartCharacterOffset=8 EndLineNumber=144 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@36" Category="CodeSchema_Method" Bounds="230.060229517726,294.239670827652,64.0933333333334,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Line2" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Line2" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=152 StartCharacterOffset=8 EndLineNumber=152 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@37" Category="CodeSchema_Method" Bounds="-132.439770482274,294.239670827652,55.2266666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Mic" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Mic" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=160 StartCharacterOffset=8 EndLineNumber=160 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@38" Category="CodeSchema_Method" Bounds="43.3102295177261,294.239670827652,62.6566666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Mmc" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Mmc" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=184 StartCharacterOffset=8 EndLineNumber=184 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@39" Category="CodeSchema_Method" Bounds="211.170229517726,406.159670827652,87.97,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="MultiSpot" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="MultiSpot" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=208 StartCharacterOffset=8 EndLineNumber=208 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="42.9816019159345,529.145988580117,113.338664109616,25.0793442133643" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterApi" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ExciterApi" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@41" Category="CodeSchema_Method" Bounds="-47.2131038156072,294.239670827652,60.5233333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Spot" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Spot" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=192 StartCharacterOffset=8 EndLineNumber=192 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@42" Category="CodeSchema_Method" Bounds="-132.439770482274,350.199670827652,66.2833333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Noise" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Noise" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=168 StartCharacterOffset=8 EndLineNumber=168 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@43" Category="CodeSchema_Method" Bounds="14.3335628510594,574.039670827652,116.966666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="ToneFrequency" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="ToneFrequency" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=176 StartCharacterOffset=8 EndLineNumber=176 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@44" Category="CodeSchema_Method" Bounds="161.333562851059,350.199670827652,76.7833333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Barrage" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Barrage" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=200 StartCharacterOffset=8 EndLineNumber=200 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@45" Category="CodeSchema_Method" Bounds="161.300229517726,574.039670827652,117.603333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="SendCommand" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SendCommand" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=332 StartCharacterOffset=8 EndLineNumber=332 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@46" Category="CodeSchema_Method" Bounds="147.609938851059,518.083126827652,112.243914666667,25.9530880000002" CodeSchemaProperty_IsPublic="True" CommonLabel="SweepDomain" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SweepDomain" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=224 StartCharacterOffset=8 EndLineNumber=224 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@47" Category="CodeSchema_Method" Bounds="60.6802295177261,350.199670827652,70.6533333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Sweep" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Sweep" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=216 StartCharacterOffset=8 EndLineNumber=216 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@48" Category="CodeSchema_Method" Bounds="289.850229517726,518.079670827652,115.483333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="MultiSpotPoint" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="MultiSpotPoint" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=232 StartCharacterOffset=8 EndLineNumber=232 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@49" Category="CodeSchema_Field" Bounds="-113.658183849093,145.113789663602,129.6,25" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="_exciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/ExciterModel.cs StartLineNumber=10 StartCharacterOffset=36 EndLineNumber=10 EndCharacterOffset=36)" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="26.6803327875612,0.0653974100937518,157.8688,85.95909408" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterManager" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Expanded" Icon="CodeSchema_Class" Label="ExciterManager" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=0 StartCharacterOffset=0 EndLineNumber=0 EndCharacterOffset=0)" UseManualLocation="True" />
+    <Node Id="@50" Category="CodeSchema_Field" Bounds="-57.1063475843171,-110.897343512712,76.73,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="_exciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///c:/radio/svn/trunk/src/netradio.g31ddc/exciterview.xaml.cs StartLineNumber=28 StartCharacterOffset=29 EndLineNumber=28 EndCharacterOffset=29)" UseManualLocation="True" />
+    <Node Id="@51" Category="CodeSchema_Field" Bounds="49.6237524055097,-136.256308710059,76.73,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="_exciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/MainWindow.xaml.cs StartLineNumber=897 StartCharacterOffset=29 EndLineNumber=897 EndCharacterOffset=29)" UseManualLocation="True" />
+    <Node Id="@52" Category="CodeSchema_Method" Bounds="46.3418218729532,90.1137896636019,129.6,25" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Create" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Create" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/ExciterModel.cs StartLineNumber=16 StartCharacterOffset=8 EndLineNumber=16 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@53" Category="CodeSchema_Method" Bounds="-132.439770482274,406.159670827652,83.4666666666666,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="EraseLog" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="EraseLog" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=293 StartCharacterOffset=8 EndLineNumber=293 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@54" Category="CodeSchema_Field" Bounds="44.6945771813497,261.549866984169,71.5433333333333,25.96" CodeSchemaProperty_IsProtected="True" DelayedCrossGroupLinksState="Fetched" Label="Exciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterManager.cs StartLineNumber=35 StartCharacterOffset=38 EndLineNumber=35 EndCharacterOffset=38)" />
+    <Node Id="@55" Category="CodeSchema_Property" Bounds="-73.3687423821054,-165.897343531473,92.9923947873816,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Property Assignment" Group="Collapsed" Label="Exciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///c:/radio/svn/trunk/src/netradio.g31ddc/exciterview.xaml.cs StartLineNumber=32 StartCharacterOffset=8 EndLineNumber=32 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@56" Category="CodeSchema_Method" Bounds="-17.5725395012706,-221.857343553728,114.03,25.96" CodeSchemaProperty_IsPrivate="True" CommonLabel="InitializeExciter" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="InitializeExciter" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/MainWindow.xaml.cs StartLineNumber=245 StartCharacterOffset=8 EndLineNumber=245 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@57" Category="CodeSchema_Method" Bounds="-132.439770482274,462.119670827652,88.9,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="NextTrack" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="NextTrack" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=245 StartCharacterOffset=8 EndLineNumber=245 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@58" Category="CodeSchema_Method" Bounds="95.7368961843928,406.159670827652,85.4333333333334,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="PowerOff" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="PowerOff" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=120 StartCharacterOffset=8 EndLineNumber=120 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@59" Category="CodeSchema_Method" Bounds="-132.439770482274,518.079670827652,108.81,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="PreviousTrack" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="PreviousTrack" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=253 StartCharacterOffset=8 EndLineNumber=253 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@60" Category="CodeSchema_Method" Bounds="6.37022951772605,518.079670827652,111.243333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="RequestStatus" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="RequestStatus" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=261 StartCharacterOffset=8 EndLineNumber=261 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@61" Category="CodeSchema_Method" Bounds="324.153562851059,294.239670827652,64.89,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="Reset" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="Reset" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=128 StartCharacterOffset=8 EndLineNumber=128 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@62" Category="CodeSchema_Method" Bounds="268.116896184393,350.199670827652,77.0366666666666,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="SelfTest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Method" Label="SelfTest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/ExciterApi.cs StartLineNumber=269 StartCharacterOffset=8 EndLineNumber=269 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="-37.493501154886,-54.9346026099063,129.6,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ExciterModel" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="3" Group="Collapsed" Icon="CodeSchema_Class" Label="ExciterModel" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/ExciterModel.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="@30" Category="CodeSchema_Calls" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@11" Target="@5" Category="InheritsFrom" Bounds="60.1597614117464,245.048675951364,1.13595112114039,21.0132218753762" Weight="1" />
+    <Link Source="@12" Target="@25" Category="Contains" FetchingParent="@12" />
+    <Link Source="@12" Target="@54" Category="Contains" FetchingParent="@12" />
+    <Link Source="@15" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,587.020080566406,29.0504455566406,6.25189208984375" Weight="1" />
+    <Link Source="@16" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="2.6424925327301,245.2392578125,35.6066110134125,104.960327148438" Weight="1" />
+    <Link Source="@18" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,483.974639892578,147.903294563293,20.7840270996094" Weight="1" />
+    <Link Source="@19" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-68.3714370727539,655.960144042969,6.25190734863281,29.0001220703125" Weight="1" />
+    <Link Source="@21" Target="@25" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@21" Target="@4" Category="References" Bounds="13.9879751205444,142.004730224609,75.4937906265259,379.127899169922" Weight="1" />
+    <Link Source="@22" Target="@25" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@22" Target="@4" Category="References" Bounds="112.539541051844,142.00473449707,244.731363201641,379.577158181723" Weight="1" />
+    <Link Source="@23" Target="@25" Category="CodeSchema_Calls" Bounds="-154.106864389387,141.991033762681,228.052927136006,121.7227291649" Weight="1" />
+    <Link Source="@23" Target="@4" Category="References" Bounds="-169.658630168112,142.00473449707,255.811020486567,379.677323490035" Weight="1" />
+    <Link Source="@24" Target="@25" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@24" Target="@4" Category="References" Bounds="112.170127868652,142.004730224609,123.003211975098,379.506317138672" Weight="1" />
+    <Link Source="@25" Target="@4" Category="References" Bounds="100.141713622697,293.893909912109,5.66706141128981,226.254900480006" Weight="1" />
+    <Link Source="@25" Target="@54" Category="CodeSchema_FieldWrite" Bounds="91.190642273575,295.524044170628,11.2302737203169,21.985211314503" Weight="1" />
+    <Link Source="@26" Target="@25" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@26" Target="@4" Category="References" Bounds="-31.7378368377686,142.004730224609,121.942121505737,378.946807861328" Weight="1" />
+    <Link Source="@27" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="137.475250244141,488.07275390625,20.6935272216797,196.887512207031" Weight="1" />
+    <Link Source="@28" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="360.058898925781,475.096221923828,86.3480834960938,6.25192260742188" Weight="1" />
+    <Link Source="@30" Target="@21" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@22" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@23" Category="CodeSchema_Calls" Bounds="-121.193412851976,66.0311183415495,178.275847847626,47.6748236494927" Weight="1" />
+    <Link Source="@30" Target="@24" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@25" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@26" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@29" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@54" Category="CodeSchema_FieldRead" Weight="5" />
+    <Link Source="@31" Target="@30" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@33" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="30.2708511352539,245.2392578125,8.0792121887207,160.920440673828" Weight="1" />
+    <Link Source="@35" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="168.013565063477,245.2392578125,6.25190734863281,49.0004272460938" Weight="1" />
+    <Link Source="@36" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="262.106903076172,245.2392578125,6.25189208984375,49.0004272460938" Weight="1" />
+    <Link Source="@37" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,307.219543457031,29.0504455566406,6.25192260742188" Weight="1" />
+    <Link Source="@38" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="74.6385650634766,245.2392578125,6.25190734863281,49.0002136230469" Weight="1" />
+    <Link Source="@39" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="299.140228271484,395.790283203125,147.266754150391,15.0343933105469" Weight="1" />
+    <Link Source="@4" Target="@15" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@16" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@18" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@19" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@27" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@28" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@29" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@33" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@35" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@36" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@37" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@38" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@39" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@41" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@42" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@43" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@44" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@45" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@46" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@47" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@48" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@53" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@57" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@58" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@59" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@60" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@61" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@62" Category="Contains" FetchingParent="@4" />
+    <Link Source="@41" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-16.95143699646,245.2392578125,6.25190830230713,49.0003051757813" Weight="1" />
+    <Link Source="@42" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,363.179656982422,29.0504455566406,6.25189208984375" Weight="1" />
+    <Link Source="@43" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="72.81689453125,599.999755859375,6.25190734863281,84.9605102539063" Weight="1" />
+    <Link Source="@44" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="201.15412902832,245.2392578125,17.0155181884766,104.960418701172" Weight="1" />
+    <Link Source="@45" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="220.086196899414,599.992736816406,6.25190734863281,84.967529296875" Weight="1" />
+    <Link Source="@46" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="151.166046142578,543.972351074219,31.8896179199219,140.987915039063" Weight="1" />
+    <Link Source="@47" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="99.6654739379883,245.2392578125,13.3354721069336,104.960418701172" Weight="1" />
+    <Link Source="@48" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="405.387512207031,531.056213378906,41.0194702148438,6.25189208984375" Weight="1" />
+    <Link Source="@49" Target="@9" Category="References" Bounds="-48.8581848144531,170.087661743164,12.3222694396973,33.5001068115234" Weight="1" />
+    <Link Source="@5" Target="@12" Category="InheritsFrom" Weight="1" />
+    <Link Source="@5" Target="@30" Category="Contains" FetchingParent="@5" />
+    <Link Source="@50" Target="@9" Category="References" Bounds="-7.96181552830887,-84.9278603173193,19.1547456240275,23.0750329526725" Weight="1" />
+    <Link Source="@51" Target="@9" Category="References" Bounds="42.1030853886231,-110.283637592668,36.1475534358698,48.1578692356138" Weight="1" />
+    <Link Source="@52" Target="@31" Category="CodeSchema_Calls" Bounds="111.141815185547,115.113784790039,0,21" Weight="1" />
+    <Link Source="@52" Target="@49" Category="CodeSchema_FieldRead" Bounds="-3.98336958885193,115.113784790039,78.7615449428558,27.0742797851563" Weight="3">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@52" Target="@9" Category="CodeSchema_ReturnTypeLink" Bounds="111.141830444336,36.5874671936035,12.322265625,53.5000953674316" Weight="1" />
+    <Link Source="@53" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,419.139739990234,29.0032958984375,6.25192260742188" Weight="1" />
+    <Link Source="@54" Target="@4" Category="References" Bounds="78.4528067124855,237.933910827637,19.6547195055729,282.233822378796" Weight="1" />
+    <Link Source="@55" Target="@50" Category="CodeSchema_FieldWrite" Bounds="-25.0357904087104,-140.887860317319,3.09172081176702,21.0951305609587" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldRead" />
+    </Link>
+    <Link Source="@55" Target="@9" Category="References" Bounds="4.4070086479187,-140.88786315918,24.9123864173889,76.9634475708008" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@56" Target="@51" Category="CodeSchema_FieldRead" Bounds="46.8081470881586,-195.887860317319,29.3846705308707,51.815485647594" Weight="2">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@56" Target="@52" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@56" Target="@55" Category="CodeSchema_Calls" Bounds="-5.02377198894375,-195.887860317319,28.9560055544431,24.2249879933529" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@56" Target="@9" Bounds="69.9020107529653,89.2796263319091,11.3299998321445,21.9986905017867" />
+    <Link Source="@57" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,475.099853515625,29.0032958984375,6.25189208984375" Weight="1" />
+    <Link Source="@58" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="133.515548706055,245.2392578125,6.33621215820313,160.92041015625" Weight="1" />
+    <Link Source="@59" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="-161.490219116211,531.056579589844,29,6.251953125" Weight="1" />
+    <Link Source="@60" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="4.19937705993652,544.032836914063,34.9557209014893,140.927429199219" Weight="1" />
+    <Link Source="@61" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="356.598571777344,245.2392578125,6.25189208984375,49.0004272460938" Weight="1" />
+    <Link Source="@62" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="306.635223388672,245.2392578125,6.25192260742188,104.960418701172" Weight="1" />
+    <Link Source="@9" Target="@31" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@49" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@5" Category="InheritsFrom" Bounds="-15.8531188964844,190.048568725586,22.846574306488,78.3132171630859" Weight="1" />
+    <Link Source="@9" Target="@52" Category="Contains" FetchingParent="@9" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_FieldRead" Label="Field Read" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Read By" OutgoingActionLabel="Reads Fields" />
+    <Category Id="CodeSchema_FieldReference" Label="Field Reference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References Fields" />
+    <Category Id="CodeSchema_FieldWrite" Label="Field Write" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Written By" OutgoingActionLabel="Writes Fields" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Property" Label="Property" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Properties" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="Is Protected" Description="Flag to indicate the scope is Protected" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsSpecialName" Label="Is Special Name" Description="Flag to indicate the method is treated in a special way by some compilers" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Language" Label="Language" Description="Language" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="ArrayRank" Label="Array Rank" ValueType="System.String" />
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParentType" Label="Parent Type" ValueType="System.Object" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(0962c8fe-c5eb-4a23-9c7c-db675cbd56f6.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=EighthBit.Exciter" />
+    <Alias n="3" Id="Type=ExciterApi" />
+    <Alias n="4" Id="(@1 @2 @3)" />
+    <Alias n="5" Id="(@1 @2 Type=ExciterManager)" />
+    <Alias n="6" Uri="Assembly=$(a5e783d5-484f-4015-9ac3-41fc9dd4e60b.OutputPathUri)" />
+    <Alias n="7" Id="Namespace=NetRadio.G31Ddc" />
+    <Alias n="8" Id="Type=ExciterModel" />
+    <Alias n="9" Id="(@6 @7 @8)" />
+    <Alias n="10" Uri="Assembly=$(4c996217-1769-4e15-a91d-654209c1568b.OutputPathUri)" />
+    <Alias n="11" Id="(@10 Namespace=NetRadio.G31Ddc.Sample @8)" />
+    <Alias n="12" Id="(@1 @2 Type=ExciterSubSystem)" />
+    <Alias n="13" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.0/mscorlib.dll" />
+    <Alias n="14" Id="Namespace=System" />
+    <Alias n="15" Id="(@1 @2 @3 Member=(Name=HoppingSwitch OverloadingParameters=[(@13 @14 Type=Boolean)]))" />
+    <Alias n="16" Id="(@1 @2 @3 Member=(Name=RfOut OverloadingParameters=[(@13 @14 Type=Boolean)]))" />
+    <Alias n="17" Id="(@13 @14 Type=Byte)" />
+    <Alias n="18" Id="(@1 @2 @3 Member=(Name=RequestData OverloadingParameters=[@17]))" />
+    <Alias n="19" Id="(@1 @2 @3 Member=(Name=StartDataTransfer OverloadingParameters=[@17]))" />
+    <Alias n="20" Id="Member=(Name=.ctor OverloadingParameters=[@4])" />
+    <Alias n="21" Id="(@1 @2 Type=ExciterBarrage @20)" />
+    <Alias n="22" Id="(@1 @2 Type=ExciterComb @20)" />
+    <Alias n="23" Id="(@1 @2 Type=ExciterMultiSpot @20)" />
+    <Alias n="24" Id="(@1 @2 Type=ExciterSpot @20)" />
+    <Alias n="25" Id="(@1 @2 Type=ExciterSubSystem @20)" />
+    <Alias n="26" Id="(@1 @2 Type=ExciterSweep @20)" />
+    <Alias n="27" Id="(@1 @2 @3 Member=(Name=RequestData OverloadingParameters=[(@1 @2 Type=ExciterCanBaudRate)]))" />
+    <Alias n="28" Id="(@1 @2 @3 Member=(Name=ControlMode OverloadingParameters=[(@1 @2 Type=ExciterMode)]))" />
+    <Alias n="29" Id="(@1 @2 @3 Member=(Name=.ctor OverloadingParameters=[(@1 Namespace=EighthBit.Exciter.Can Type=ICanControl)]))" />
+    <Alias n="30" Id="(@1 @2 Type=ExciterManager Member=(Name=.ctor OverloadingParameters=[(@1 Namespace=EighthBit.Exciter.Can Type=ICanControl)]))" />
+    <Alias n="31" Id="(@6 @7 @8 Member=(Name=.ctor OverloadingParameters=[(@1 Namespace=EighthBit.Exciter.Can Type=ICanControl)]))" />
+    <Alias n="32" Id="(@13 @14 Type=UInt16)" />
+    <Alias n="33" Id="(@1 @2 @3 Member=(Name=PowerOn OverloadingParameters=[@32]))" />
+    <Alias n="34" Id="OverloadingParameters=[(@13 @14 Type=Boolean),(@13 @14 Type=Boolean)]" />
+    <Alias n="35" Id="(@1 @2 @3 Member=(Name=Line1 @34))" />
+    <Alias n="36" Id="(@1 @2 @3 Member=(Name=Line2 @34))" />
+    <Alias n="37" Id="(@1 @2 @3 Member=(Name=Mic @34))" />
+    <Alias n="38" Id="(@1 @2 @3 Member=(Name=Mmc @34))" />
+    <Alias n="39" Id="(@1 @2 @3 Member=(Name=MultiSpot OverloadingParameters=[@17,(@1 @2 Type=ExciterModulation)]))" />
+    <Alias n="40" Id="(@13 @14 Type=UInt32)" />
+    <Alias n="41" Id="(@1 @2 @3 Member=(Name=Spot OverloadingParameters=[@40,(@1 @2 Type=ExciterModulation)]))" />
+    <Alias n="42" Id="(@1 @2 @3 Member=(Name=Noise OverloadingParameters=[(@1 @2 Type=ExciterNoise),(@1 @2 Type=ExciterNoise)]))" />
+    <Alias n="43" Id="(@1 @2 @3 Member=(Name=ToneFrequency OverloadingParameters=[@32,@32]))" />
+    <Alias n="44" Id="(@1 @2 @3 Member=(Name=Barrage OverloadingParameters=[@40,@32]))" />
+    <Alias n="45" Id="(@1 @2 @3 Member=(Name=SendCommand OverloadingParameters=[(@13 @14 Type=(Name=Byte ArrayRank=1 ParentType=Byte)),@40]))" />
+    <Alias n="46" Id="(@1 @2 @3 Member=(Name=SweepDomain OverloadingParameters=[@40,@40]))" />
+    <Alias n="47" Id="(@1 @2 @3 Member=(Name=Sweep OverloadingParameters=[@40,(@1 @2 Type=ExciterModulation),@17]))" />
+    <Alias n="48" Id="(@1 @2 @3 Member=(Name=MultiSpotPoint OverloadingParameters=[@17,@40,@17]))" />
+    <Alias n="49" Id="(@6 @7 @8 Member=_exciter)" />
+    <Alias n="50" Id="(@6 @7 Type=ExciterView Member=_exciter)" />
+    <Alias n="51" Id="(@6 @7 Type=MainWindow Member=_exciter)" />
+    <Alias n="52" Id="(@6 @7 @8 Member=Create)" />
+    <Alias n="53" Id="(@1 @2 @3 Member=EraseLog)" />
+    <Alias n="54" Id="(@1 @2 Type=ExciterSubSystem Member=Exciter)" />
+    <Alias n="55" Id="(@6 @7 Type=ExciterView Member=Exciter)" />
+    <Alias n="56" Id="(@6 @7 Type=MainWindow Member=InitializeExciter)" />
+    <Alias n="57" Id="(@1 @2 @3 Member=NextTrack)" />
+    <Alias n="58" Id="(@1 @2 @3 Member=PowerOff)" />
+    <Alias n="59" Id="(@1 @2 @3 Member=PreviousTrack)" />
+    <Alias n="60" Id="(@1 @2 @3 Member=RequestStatus)" />
+    <Alias n="61" Id="(@1 @2 @3 Member=Reset)" />
+    <Alias n="62" Id="(@1 @2 @3 Member=SelfTest)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="Has category">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Reference" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FieldReference')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="0962c8fe-c5eb-4a23-9c7c-db675cbd56f6.OutputPathUri" Value="file:///C:/Radio/svn/trunk/src/Exciter/EighthBit.Exciter/bin/Debug/EighthBit.Exciter.dll" />
+    <Path Id="4c996217-1769-4e15-a91d-654209c1568b.OutputPathUri" Value="file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc.Sample/bin/Debug/NetRadio.G31Ddc.Sample.exe" />
+    <Path Id="a5e783d5-484f-4015-9ac3-41fc9dd4e60b.OutputPathUri" Value="file:///C:/Radio/svn/trunk/src/NetRadio.G31Ddc/bin/Debug/NetRadio.G31Ddc.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

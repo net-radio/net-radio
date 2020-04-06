@@ -1,0 +1,1535 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arction.SignalTools</name>
+    </assembly>
+    <members>
+        <member name="F:Arction.SignalTools.UserControlSquareRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSquareRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSquareRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSineTable.FillFromSineComponents(System.Collections.Generic.List{Arction.SignalTools.SineComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlSineTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSineTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSineTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.AmplitudeSineSweepComponent">
+            <summary>
+            Sine amplitude sweep waveform component. Runs with constant frequency, from amplitude to another, during given duration.
+            Then jumps to start starting amplitude again. 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AmplitudeSineSweepComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AmplitudeSineSweepComponent.#ctor(Arction.SignalTools.AmplitudeSineSweepComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.SignalTools.AmplitudeSineSweepComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.AmplitudeSineSweepComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.AmplitudeFrom">
+            <summary>
+            Starting amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.AmplitudeTo">
+            <summary>
+            End amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.Offset">
+            <summary>
+            Offset of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.DurationMs">
+            <summary>
+            Duration of sine sweep in ms. Runs from starting amplitude to end amplitude during this duration. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.Frequency">
+            <summary>
+            Frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.AmplitudeSineSweepComponent.Enabled">
+            <summary>
+            Is the sweep component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.AudioOutput.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.Start">
+            <summary>
+            Starts this instance. Is equivalent to setting IsOutput property true.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.StopRequest">
+            <summary>
+            Signals this instance to stop. Stopping does not occur immediately 
+            after exiting this method. By subscribing to Stopped event, caller 
+            is notified when everything has stopped.  Is equivalent to setting 
+            IsOutputEnabled property true.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.GetPlaybackDevices">
+            <summary>
+            Gets a list of available Windows playback devices as PlayBackDeviceInfo objects.
+            </summary>
+            <returns>List of PlaybackDeviceInfo objects.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.#ctor(System.String)">
+            <summary>
+            Default constructor. Initializes a new instance of AudioOutput class.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.Finalize">
+            <summary>
+            Finalizer.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioOutput.AddSamples(System.Double[][])">
+            <summary>
+            Use this method to feed new data to audio output stream.
+            </summary>
+            <param name="samples">Samples to be fed to audio output stream ([Channel][Sample]).</param>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.Balance">
+            <summary>
+            Gets or sets audio playback balance. Valid values are between -100 to 100. 
+            -100 means that audio is played only through the left speaker. 0 means that 
+            both speakers output audio. 100 means that audio is played only through 
+            the right speaker.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.BitsPerSample">
+            <summary>
+            Gets or sets how many bits are allocated per sample. 
+            Supported values are 8 and 16. If other value is used, 
+            16 is used instead. Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.IsOutputEnabled">
+            <summary>
+            Gets or sets the state of this instance (i.e. starts or stops it). 
+            Setting this property true is the same as calling Start method where 
+            false is the same as calling Stop method.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.IsStereo">
+            <summary>
+            Gets or sets whether to use two channels (stereo) or just one (mono). 
+            Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.LicenseKey">
+            <summary>
+            Gets or sets license key string in normal or encrypted format.
+            </summary>	
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.PlaybackDevice">
+            <summary>
+            Gets or sets the current playback device. Is settable when IsInputEnabled is false. 
+            By setting this property null, Windows' default playback device is used.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.SamplesPerSecond">
+            <summary>
+            Gets or sets sampling frequency. Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioOutput.Volume">
+            <summary>
+            Gets or sets volume (0-100). Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.AudioOutput.Started">
+            <summary>
+            Occurs when audio playback has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.AudioOutput.Stopped">
+            <summary>
+            Occurs when audio playback has been stopped.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlLabel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlLabel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlLabel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlTriangleRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlTriangleRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlTriangleRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.RandomNoiseComponent">
+            <summary>
+            Random noise waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.RandomNoiseComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.RandomNoiseComponent.#ctor(Arction.SignalTools.RandomNoiseComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.SignalTools.RandomNoiseComponent.GetRandomValue">
+            <summary>
+            Get random value, using offset and amplitude 
+            </summary>
+            <returns>Random value, in range -Amplitude+Offset ... +Amplitude+Offset</returns>
+        </member>
+        <member name="M:Arction.SignalTools.RandomNoiseComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.RandomNoiseComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.RandomNoiseComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.RandomNoiseComponent.Amplitude">
+            <summary>
+            Amplitude of random noise component. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.RandomNoiseComponent.Offset">
+            <summary>
+            Offset of random noise component
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.RandomNoiseComponent.Enabled">
+            <summary>
+            Is the random noise component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlSineRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSineRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSineRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlFrequencySweepTable.FillFromSweepComponents(System.Collections.Generic.List{Arction.SignalTools.FrequencySineSweepComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlFrequencySweepTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlFrequencySweepTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlFrequencySweepTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlAmplitudeSweepTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlAmplitudeSweepTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlAmplitudeSweepTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlAmplitudeSweepTable.FillFromSweepComponents(System.Collections.Generic.List{Arction.SignalTools.AmplitudeSineSweepComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.Filtering.FilterRoutines">
+            <summary>
+            Static methods for filtering 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.Filtering.FilterRoutines.MovingAverage(System.Double[],System.Int32)">
+            <summary>
+            Moving (floating) average. Smoothens the given data, by calculating using value and neighbor values
+            </summary>
+            <param name="values">Input values</param>
+            <param name="windowLength">Averaging window length. Calculates output as average of each value and neighbours in range -windowLength/2...+windowLength/2</param>
+            <returns>Filtered data</returns>
+        </member>
+        <member name="F:Arction.SignalTools.AudioInput.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.GetRecordingDevices">
+            <summary>
+            Use this static method to get a list of available Windows recording devices.
+            </summary>
+            <returns>List of available Windows recording devices as RecordingDeviceInfo objects.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.Start">
+            <summary>
+            Starts this instance. Is equivalent to setting IsInputEnabled property true.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.StopRequest">
+            <summary>
+            Signals this instance to stop. Stopping does not occur immediately 
+            after exiting this method. By subscribing to Stopped event, caller 
+            is notified when everything has stopped.  Is equivalent to setting 
+            IsInputEnabled property true.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.#ctor">
+            <summary>
+            Default constructor. Creates and initializes a new instance of AudioInput.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.AudioInput.#ctor(System.String)">
+            <summary>
+            Constructor. Creates and initializes a new instance of AudioInput.
+            </summary>
+            <param name="licenseKey">License key in normal or encrypted format. 
+            Needed when creating the object dynamically at runtime with 'new' 
+            keyword and there is no controls of the same type inserted on any UI designer form.</param>
+            <remarks>If you provide your license this ways, 
+            YOU ARE NOT ALLOWED TO DISTRIBUTE YOUR SOURCE CODE TO OTHERS. 
+            See License Agreement (EULA) for details. </remarks>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.BitsPerSample">
+            <summary>
+            Gets or sets how many bits are allocated per sample. 
+            Supported values are 8 and 16. If other value is used, 
+            16 is used instead. Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.IsInputEnabled">
+            <summary>
+            Gets or sets the state of this instance (i.e. starts or stops it). 
+            Setting this property true is the same as calling Start method where 
+            false is the same as calling Stop method.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.IsStereo">
+            <summary>
+            Gets or sets whether to use two channels (stereo) or just one (mono). 
+            Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.LicenseKey">
+            <summary>
+            Gets or sets license key string in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.RecordingDevice">
+            <summary>
+            Gets or sets the current recording device. Is settable when IsInputEnabled is false. 
+            By setting this property null, Windows' default recording device is used.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.SamplesPerSecond">
+            <summary>
+            Gets or sets sampling frequency. Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.ThreadInvoking">
+            <summary>
+            Gets or sets whether this instance automatically synchronizes its 
+            events to the main UI thread hence eliminating the need to call 
+            Control.Invoke method on caller's side.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.AudioInput.Volume">
+            <summary>
+            Gets or sets volume (0-100). Is settable when IsInputEnabled is false.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.AudioInput.DataGenerated">
+            <summary>
+            Occurs when new audio data has been generated.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.AudioInput.Started">
+            <summary>
+            Occurs when audio input has been started.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.AudioInput.Stopped">
+            <summary>
+            Occurs when audio input has been stopped.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SignalReader">
+            <summary>
+            Sampled signal file reader. Reads data from various formats, like *.wav, *.sid. 
+            The output data stream will have equal amount of channels.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.#ctor(System.String)">
+            <summary>
+            Constructor. Creates and initializes a new instance of SignalReader class.
+            </summary>
+            <param name="licenseKey">License key in normal or encrypted format
+            Needed when creating the object dynamically at runtime with 'new' 
+            operator and there is no controls of same type inserted in any UI designer form.</param>
+            <remarks>If you provide the license with this key, 
+            YOU ARE NOT ALLOWED TO DISTRIBUTE YOUR SOURCE CODE TO OTHERS. 
+            See License Agreement (EULA) for details. </remarks>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.CloseFile">
+            <summary>
+            Close the opened file 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.ReadAllData(System.String,System.Int32@,System.Int32@,System.Double[][]@,Arction.SignalTools.SignalReader.Marker[]@)">
+            <summary>
+            Read all data from file. The output is a multi-channel samples array, and array of markers.  
+            </summary>
+            <param name="fileName">Signal file name. The file extension must be a supported one: wav, sid or ssd </param>
+            <param name="channelCount">Channel count</param>
+            <param name="samplingFrequency">Sampling frequency in Hz</param>
+            <param name="samples">Multi-channel samples array. First dimension is the channels, second dimension is samples.
+            For example, samples[2][9] gives access to 10th sample of 3rd channel.</param>
+            <param name="markers">Array of markers. Null if none was found.</param>
+            <returns>File open result</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.ToString">
+            <summary>
+            Returns class description.
+            </summary>
+            <returns>Class description.</returns>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalReader.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.LicenseKey">
+            <summary>
+            Gets or sets license key in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.FileName">
+            <summary>
+            File name to be read
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.IsLooping">
+            <summary>
+            The file reading can be automatically moved to beginning when end of file has been reached, by enabling this. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.OutputInterval">
+            <summary>
+            Output interval in ms. This is only the target value, and not always accurate. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.ThreadType">
+            <summary>
+            Thread type. Timer or thread operation.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.Factor">
+            <summary>
+            General factor for output signal. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.ThreadInvoking">
+            <summary>
+            Built-in invoking to UI thread when using ThreadType = Thread. 
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalReader.DataGenerated">
+            <summary>
+            New data generated. 
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalReader.MarkerRead">
+            <summary>
+            Marker read. 
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalReader.Started">
+            <summary>
+            Reader has been started
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalReader.Stopped">
+            <summary>
+            File reader has stopped. End of file has been reached and looping is not enabled. 
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalReader.EndOfFile">
+            <summary>
+            End of file has been reached
+            </summary>
+            <remarks>If Looping is set, this is called just before jumping to beging of the file.</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.FileFilterString">
+            <summary>
+            Filter string for file open dialog.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.SamplingFrequency">
+            <summary>
+            Gets sampling frequency. The number of output points calculated per second. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.ChannelCount">
+            <summary>
+            Channel count.  
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.Length">
+            <summary>
+            Length of opened file, in samples (for each channel).
+            For some file formats, this is an estimate. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.FileSize">
+            <summary>
+            File size in bytes
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalReader.BitsPerSample">
+            <summary>
+            Bits per sample.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SignalReader.OpenResult">
+            <summary>
+            Open result.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.OpenResult.OK">
+            <summary>
+            File opened successfully.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.OpenResult.SignalReaderRunning">
+            <summary>
+            Signal reader is running.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.OpenResult.FileNotAccessible">
+            <summary>
+            File is not accessible.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.OpenResult.UnknownExtension">
+            <summary>
+            The extension is not one of the supported ones.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.OpenResult.UnknownWaveFormat">
+            <summary>
+            WAV audio format must be PCM. Others will fail.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SignalReader.Marker">
+            <summary>
+            Marker.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.Marker.Type">
+            <summary>
+            Type.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SignalReader.Marker.TimeStamp">
+            <summary>
+            Time stamp.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSquareTable.FillFromSquareComponents(System.Collections.Generic.List{Arction.SignalTools.SquareComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlSquareTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSquareTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlSquareTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.RecordingDeviceInfo.Description">
+            <summary>
+            Recording device description.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.RecordingDeviceInfo.DriverGuid">
+            <summary>
+            Recording device id.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.RecordingDeviceInfo.ModuleName">
+            <summary>
+            Recording device module name.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.RecordingDeviceInfo.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.RecordingDeviceInfo.#ctor(System.String,System.Guid,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="description">Recording device description.</param>
+            <param name="driverId">Recording device id.</param>
+            <param name="moduleName">Recording device module name.</param>
+        </member>
+        <member name="M:Arction.SignalTools.RecordingDeviceInfo.ToString">
+            <summary>
+            Returns Description field value of this instance.
+            </summary>
+            <returns>Description of this instance</returns>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlNoiseRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlNoiseRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlNoiseRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SpectrumCalculator">
+            <summary>
+            Spectrum calculator. Uses FFT routines to convert time signal data into frequency information, or vice versa. 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.Finalize">
+            <summary>
+            Finalizer.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.#ctor(System.String)">
+            <summary>
+            Constructor with license key, in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.PowerSpectrumOverlapped(System.Double[],System.Int32,System.Double,System.Double[]@,System.Int32@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values. Overlaps moving FFT window until all data is processed. 
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftWindowLength">Length of moving calculation window.</param>
+            <param name="overlapPercent">Overlapping percent. Moving FFT window is shifted by this amount for next calculation round. Valid values are 0...99</param>
+            <param name="fftData">Output FFT data. Length equals fftWindowLenght. If samples length is less than fftWindowLength, outputs samples length of data.</param>
+            <param name="processedSampleCount">Processed sample count. It is possible that all samples are not processed from the end, if there's not enough data for last FFT window.</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.PowerSpectrumOverlapped(System.Single[],System.Int32,System.Double,System.Single[]@,System.Int32@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values. Overlaps moving FFT window until all data is processed. 
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftWindowLength">Length of moving calculation window.</param>
+            <param name="overlapPercent">Overlapping percent. Moving FFT window is shifted by this amount for next calculation round. Valid values are 0...99</param>
+            <param name="fftData">Output FFT data. Length equals fftWindowLenght. If samples length is less than fftWindowLength, outputs samples length of data.</param>
+            <param name="processedSampleCount">Processed sample count. It is possible that all samples are not processed from the end, if there's not enough data for last FFT window.</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.CalculateForward(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates FFT conversion. Converts signal data into frequency component data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.CalculateForward(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates FFT conversion. Converts signal data into frequency component data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.CalculateBackward(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates backwards FFT conversion. Converts frequency component data into signal sample data. 
+            </summary>
+            <param name="samples">Output signal samples</param>
+            <param name="fftData">Input FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.CalculateBackward(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates backwards FFT conversion. Converts frequency component data into signal sample data. 
+            </summary>
+            <param name="samples">Output signal samples</param>
+            <param name="fftData">Input FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.PowerSpectrum(System.Double[],System.Double[]@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values.  
+            The count of output FFT data is same than input data. 
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SpectrumCalculator.PowerSpectrum(System.Single[],System.Single[]@)">
+            <summary>
+            Calculates power spectrum, having all FFT data in absolute values.  
+            </summary>
+            <param name="samples">Signal samples</param>
+            <param name="fftData">Output FFT data</param>
+            <returns>True if successful, else False.</returns>
+        </member>
+        <member name="P:Arction.SignalTools.SpectrumCalculator.LicenseKey">
+            <summary>
+            Gets or sets license key in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlNoiseTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlNoiseTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlNoiseTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlNoiseTable.FillFromNoiseComponents(System.Collections.Generic.List{Arction.SignalTools.RandomNoiseComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.ThreadType">
+            <summary>
+            Threading type
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.ThreadType.Thread">
+            <summary>
+            Use thread.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.ThreadType.Timer">
+            <summary>
+            Use timer.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SelectedPage">
+            <summary>
+            Active page that is shown in the UI
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.Sines">
+            <summary>
+            Sine waveforms
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.Squares">
+            <summary>
+            Squares
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.Triangles">
+            <summary>
+            Triangles
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.RandomNoises">
+            <summary>
+            Random noises
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.FrequencySineSweeps">
+            <summary>
+            Frequency sine sweeps
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.AmplitudeSineSweeps">
+            <summary>
+            Amplitude sine sweeps
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.SelectedPage.All">
+            <summary>
+            All
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.ArrayProcessThreadInfo">
+            <summary>
+            Array process info for a thread 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.ArrayProcessThreadInfo.StartIndex">
+            <summary>
+            Start array index 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.ArrayProcessThreadInfo.Count">
+            <summary>
+            Count to process within the array
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.FrequencySineSweepComponent">
+            <summary>
+            Sine frequency sweep waveform component. Runs with constant amplitude, from frequency to another, during given duration.
+            Then jumps to start starting frequency again. 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.FrequencySineSweepComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.FrequencySineSweepComponent.#ctor(Arction.SignalTools.FrequencySineSweepComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.SignalTools.FrequencySineSweepComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.FrequencySineSweepComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.Amplitude">
+            <summary>
+            Amplitude of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.Offset">
+            <summary>
+            Offset of sine sweep
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.DurationMs">
+            <summary>
+            Duration of sine sweep in ms. Runs from starting frequency to end frequency during this duration. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.FrequencyFrom">
+            <summary>
+            Start frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.FrequencyTo">
+            <summary>
+            End frequency of sine sweep.
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.FrequencySineSweepComponent.Enabled">
+            <summary>
+            Is the sweep component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SquareComponent">
+            <summary>
+            Square waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SquareComponent.#ctor(Arction.SignalTools.SquareComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:Arction.SignalTools.SquareComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.SquareComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Amplitude">
+            <summary>
+            Amplitude of square component.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Offset">
+            <summary>
+            Offset of square component
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.DelayMs">
+            <summary>
+            Delay of square component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Frequency">
+            <summary>
+            Frequency of square component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Enabled">
+            <summary>
+            Is the square component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SquareComponent.Symmetry">
+            <summary>
+            Square wave symmetry. Valid range is 0...1.
+            If symmetry is &lt; 0.5, the 'low'stage of noise wave is longer than 'high' stage. 
+            Vice versa, value &gt; 0.5 makes the 'high' stage longer
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SignalGenerator">
+            <summary>
+            Signal generator generates signal on-the-fly. Timing is based on computer's clock.
+            You can define many different signal waveform components and they are combined as one signal output. 
+            The wave component types are: Sine, Triangle, Square and RandomNoise.
+            Sample interval is determined as 1/SamplingFrequency. 
+            You can define output range scale factor by setting Factor property, but don't confuse this with Amplitude property of a waveform component. 
+            Many signal generators can be combined as a synchronized, multi-channel output, via master-slave relationship. 
+            You can use the built-in user interface to configure the settings and waveforms or just hide the control define your own user
+            interface set the waveforms by filling the waveform component lists. 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.SetParentWindow(System.IntPtr)">
+            <summary>
+            Set parent window handle (HWND). 
+            Needed when using the control from other systems than .NET 
+            <param name="hwnd">Parent window handle</param>
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.GetParentWindow">
+            <summary>
+            Get parent window handle (HWND). 
+            Needed when using the control from other systems than .NET 
+            </summary>
+            <returns>Parent window handle</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.UpdateUIFromWaveFormComponents">
+            <summary>
+            Fills the UI from waveform components 
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.CreateWaveformCompsFromUI">
+            <summary>
+            Create wave form from generator user interface
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.#ctor">
+            <summary>
+            Default constructor. Create and initializes a new instance of SignalGenerator class.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.#ctor(System.String)">
+            <summary>
+            Constructor. Create and initializes a new instance of SignalGenerator class.
+            </summary>
+            <param name="licenseKey">License key in normal or encrypted format. 
+            Needed when creating the object dynamically at runtime with 'new' 
+            keyword and there is no controls of the same type inserted on any UI designer form.</param>
+            <remarks>If you provide your license this ways, 
+            YOU ARE NOT ALLOWED TO DISTRIBUTE YOUR SOURCE CODE TO OTHERS. 
+            See License Agreement (EULA) for details. </remarks>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.ToString">
+            <summary>
+            Convert class description to string.
+            </summary>
+            <returns>Class description.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.GetCoreCount">
+            <summary>
+            Returns the count of enabled CPU cores.
+            </summary>
+            <returns>Enabled core count.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.EnabledWaveFormComponentsCount">
+            <summary>
+            Get enabled waveform components count.
+            </summary>
+            <returns>Enabled components count</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.RequestStop">
+            <summary>
+            Stops the timer or the thread that is used in generating signal. 
+            If ThreadType is ThreadType.Thread then Stop method could exit 
+            before the thread is stopped. Subscribe to Stopped event which 
+            is triggered when signal generator is completely stopped (i.e. 
+            the timer or the thread is stopped).
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.DivideArrayForThreads(System.Int32,System.Int32)">
+            <summary>
+            Get multicore-processed array. Tells 
+            - how many threads are needed, 
+            - item count to process per thread 
+            - array index where the processing must start for each thread
+            </summary>
+            <param name="countItems">Array length, which is to processed in multi-core</param>
+            <param name="maxThreadCount">Maximum thread count to use. Give System.Environment.ProcessorCount, if no special reason to use less. </param>
+            <returns>Array process info per thread. Returned array length is the needed thread count.</returns>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.GenerateBlock(System.Int32)">
+            <summary>
+            Generates block of having given sample count, using properties set
+            </summary>
+            <param name="sampleCount">Sample count (for each channel)</param>
+            <returns>Multi-channel data array</returns>
+        </member>
+        <member name="F:Arction.SignalTools.SignalGenerator.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SignalGenerator.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.MasterGenerator">
+            <summary>
+            Master generator. Several generators can be combined together to produce a synchronized multi-channel output data stream. 
+            Master sets the sampling frequency for each slave generator and combines the samples from each slave to master's output data stream.
+            Set this null if this is a master generator. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.SamplingFrequency">
+            <summary>
+            Sampling frequency. The count of output points calculated per second. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.ThreadType">
+            <summary>
+            Thread operation type.
+            </summary>
+            <remarks>It is easier to track problems and crashes by using the timer.</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.OutputInterval">
+            <summary>
+            Output interval in ms. This is only the target value, and not always accurate. 
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.Factor">
+            <summary>
+            General factor for output signal. Allows using e.g. millivolt range by setting this 0.001, or 1E-3.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormSines">
+            <summary>
+            Waveform sine components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormSquares">
+            <summary>
+            Waveform square components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormTriangles">
+            <summary>
+            Waveform triangle components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormRandomNoises">
+            <summary>
+            Waveform random noise components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormFrequencySineSweeps">
+            <summary>
+            Waveform, frequency sine sweep components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.WaveFormAmplitudeSineSweeps">
+            <summary>
+            Waveform, amplitude sine sweep components.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.Running">
+            <summary>
+            Gets the state of this generator (running or not).
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.MultiCoreProcessing">
+            <summary>
+            If enabled, computes the signal in several CPU threads. 
+            Enables faster rendering when CPU has more cores than 1. Only certain parts of chart are multicore optimized. 
+            </summary>
+            <remarks>When running the application from Visual Studio debugger, and this is enabled, 
+            the performance is worse than without multicore processing. When the application is run directly from
+            Windows, the performance is superb. 
+            </remarks>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.SelectedPage">
+            <summary>
+            Gets or set selected page in signal generator UI.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.SelectedPageIndex">
+            <summary>
+            Gets or sets selected page index in UI.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.ThreadInvoking">
+            <summary>
+            Built-in invoking to UI thread when using ThreadType = Thread. 
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalGenerator.DataGenerated">
+            <summary>
+            Occurs when new data is generated.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalGenerator.Started">
+            <summary>
+            Occurs when signal generator is started.
+            </summary>
+        </member>
+        <member name="E:Arction.SignalTools.SignalGenerator.Stopped">
+            <summary>
+            Occurs when signal generator is stopped.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SignalGenerator.LicenseKey">
+            <summary>
+            Gets or sets license key in normal or encrypted format.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlTriangleTable.FillFromTriangleComponents(System.Collections.Generic.List{Arction.SignalTools.TriangleComponent})">
+            <summary>
+            Fills the control from given list items 
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlTriangleTable.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlTriangleTable.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlTriangleTable.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.TriangleComponent">
+            <summary>
+            Triangle waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.TriangleComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.TriangleComponent.#ctor(Arction.SignalTools.TriangleComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.SignalTools.TriangleComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.TriangleComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Amplitude">
+            <summary>
+            Amplitude of triangle component.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Offset">
+            <summary>
+            Offset of triangle component
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.DelayMs">
+            <summary>
+            Delay of triangle component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Frequency">
+            <summary>
+            Frequency of triangle component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Enabled">
+            <summary>
+            Is the triangle component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.TriangleComponent.Symmetry">
+            <summary>
+            Triangle wave symmetry. Valid range is 0...1.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.PlaybackDeviceInfo.Description">
+            <summary>
+            Playback device description.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.PlaybackDeviceInfo.DriverGuid">
+            <summary>
+            Playback device id.
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.PlaybackDeviceInfo.ModuleName">
+            <summary>
+            Playback device module name.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.PlaybackDeviceInfo.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.PlaybackDeviceInfo.#ctor(System.String,System.Guid,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="description">Playback device description.</param>
+            <param name="driverId">Playback device id.</param>
+            <param name="moduleName">Playback device module name.</param>
+        </member>
+        <member name="M:Arction.SignalTools.PlaybackDeviceInfo.ToString">
+            <summary>
+            Returns Description field value of this instance.
+            </summary>
+            <returns>Description of this instance</returns>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlAmplitudeSineSweepRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlAmplitudeSineSweepRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlAmplitudeSineSweepRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.SineComponent">
+            <summary>
+            Sine waveform component
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SineComponent.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.SineComponent.#ctor(Arction.SignalTools.SineComponent)">
+            <summary>
+            Copy constructor.
+            </summary>
+            <param name="source">Source object.</param>
+        </member>
+        <member name="M:Arction.SignalTools.SineComponent.IsModified">
+            <summary>
+            Returns true if any of this instances public properties have 
+            been modified. Resets flag before returning.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arction.SignalTools.SineComponent.ToString">
+            <summary>
+            Convert class description to string 
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.Id">
+            <summary>
+            Gets or sets the unique identifier of this instance.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.Amplitude">
+            <summary>
+            Amplitude of sine component.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.Offset">
+            <summary>
+            Offset of sine component
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.DelayMs">
+            <summary>
+            Delay of sine component in ms.
+            </summary>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.Frequency">
+            <summary>
+            Frequency of sine component
+            </summary>
+            <remarks>This is not sampling frequency of the generator!</remarks>
+        </member>
+        <member name="P:Arction.SignalTools.SineComponent.Enabled">
+            <summary>
+            Is the sine component included in calculation of the output signal
+            </summary>
+        </member>
+        <member name="F:Arction.SignalTools.UserControlFrequencySineSweepRow.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlFrequencySineSweepRow.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Arction.SignalTools.UserControlFrequencySineSweepRow.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Arction.SignalTools.Action">
+            <summary>
+            A multi-purpose delegate to use when you need neither parameters nor a return value.
+            </summary>
+        </member>
+    </members>
+</doc>
